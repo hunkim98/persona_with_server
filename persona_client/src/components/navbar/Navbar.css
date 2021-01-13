@@ -1,0 +1,76 @@
+.navbar {
+  height: 140px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.navbar_container {
+  display: flex;
+  width: 100%;
+  padding-right: 50px;
+  padding-left: 50px;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.logo_container {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar_logo {
+  max-width: 90px;
+  height: auto;
+}
+
+.navbar_menu_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  height: 100%;
+  margin: 0 0;
+}
+
+.navbar_menu {
+  font-family: 'Noto Sans KR', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 400;
+  font-size: 1rem;
+  padding: 0px 30px;
+  height: 110px;
+}
+
+.menu_link1 {
+  width: auto;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.menu_link2 {
+  width: auto;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.menu_link1:hover {
+  height: 57px;
+}
+
+.menu_link2:hover {
+  height: 47px;
+}

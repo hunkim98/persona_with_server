@@ -4,6 +4,7 @@ import Navbar from "./components/navbar/Navbar";
 import Basic from "./components/Start/Basic";
 import CheckPersona from "./components/Check_persona/check_persona";
 import Result from "./components/Result/Result";
+import UserData from "./components/UserData/UserData";
 import Share from "./components/Share/Share";
 
 function App() {
@@ -70,7 +71,8 @@ function App() {
             />
           )}
         />
-        <Route path="/share" render={(props) => <Share />} />
+        <Route path="/data" render={(props) => <UserData />} />
+        <Route path="/share/:id" render={(props) => <Share />} />
       </Switch>
     </div>
   );

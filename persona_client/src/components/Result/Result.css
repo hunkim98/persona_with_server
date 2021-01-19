@@ -40,7 +40,7 @@
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  font-family: 'Noto Sans CJK KR', sans-serif;
+  font-family: "Noto Sans CJK KR", sans-serif;
   font-size: 32px;
   font-weight: 550;
   justify-content: center;
@@ -62,7 +62,7 @@
 .result_basic_information {
   font-size: 20px;
   width: 80%;
-  font-family: 'Noto Sans CJK KR', sans-serif;
+  font-family: "Noto Sans CJK KR", sans-serif;
   font-weight: 500;
   opacity: 60%;
   line-height: 35px;
@@ -76,7 +76,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: 'Noto Sans CJK KR', sans-serif;
+  font-family: "Noto Sans CJK KR", sans-serif;
   font-weight: 550;
   word-break: keep-all;
 }
@@ -107,7 +107,7 @@
 .good_and_bad ul {
   padding: 0;
   margin: 0;
-  list-style-type: '- ';
+  list-style-type: "- ";
   padding-inline-start: 5px;
   font-weight: 450;
 }
@@ -151,7 +151,7 @@
 
 .result_buttons {
   margin-top: 100px;
-  font-family: 'Noto Sans CJK KR', sans-serif;
+  font-family: "Noto Sans CJK KR", sans-serif;
   display: flex;
   flex-direction: row;
 }
@@ -162,6 +162,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 .result_buttons .another_test {
@@ -170,6 +171,22 @@
   background-color: rgb(138, 138, 138);
   justify-content: center;
   align-items: center;
+}
+.share_method {
+  top: -60px;
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+}
+.share_method .method {
+  width: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.share_method .method img {
+  width: 40px;
+  height: auto;
 }
 
 @media only screen and (max-width: 1200px) {

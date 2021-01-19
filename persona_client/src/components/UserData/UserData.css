@@ -1,0 +1,12 @@
+.userData {
+  display: flex;
+}
+
+.userData .name {
+  width: 100px;
+  overflow: hidden;
+}
+
+.userData .personality {
+  width: 80px;
+}

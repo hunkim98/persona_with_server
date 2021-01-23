@@ -3,6 +3,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 0 30px 0 30px;
 }
 .result_pattern_container {
   max-width: 1200px;
@@ -31,10 +32,33 @@
 
 .mask_circle {
   position: absolute;
+  width: 70%;
   right: -180px;
   top: 50%;
   transform: translate(0, -50%);
 }
+
+.mask_line {
+  border-bottom: 2px dashed #000000;
+  height: 2px;
+  width: 100%;
+  opacity: 30%;
+}
+
+.mask_line:first-child {
+  margin-bottom: 30px;
+}
+
+.mask_line:last-child {
+  margin-top: 30px;
+  margin-bottom: 70px;
+}
+
+/*
+*
+* user name, mask basic info
+*
+*/
 
 .result_mask_information {
   display: flex;
@@ -53,26 +77,57 @@
 
 .result_basic_info_container {
   width: 100%;
-  max-width: 1100px;
+  max-width: 1000px;
   display: flex;
   justify-content: center;
-  margin: 30px 0 100px 0;
+  margin-top: 30px;
 }
 
 .result_basic_information {
-  font-size: 20px;
-  width: 80%;
+  font-size: 22px;
+  width: 100%;
   font-family: "Noto Sans CJK KR", sans-serif;
   font-weight: 500;
   opacity: 60%;
-  line-height: 35px;
+  line-height: 48px;
   text-align: center;
   word-break: keep-all;
+  padding: 0 15px 0 15px;
+}
+
+/*
+*
+* result additional info / GOOD & BAD
+*
+*/
+
+.result_divide {
+  margin-top: 80px;
+  margin-bottom: 80px;
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.result_divide svg {
+  margin: 0 10px 0 10px;
+  width: 60px;
+  height: auto;
+  opacity: 20%;
+}
+
+.result_divide .line {
+  border-bottom: 2px dashed #000000;
+  width: calc(50% - 70px);
+  height: 40px;
+  opacity: 30%;
 }
 
 .result_additional_info_container {
   width: 100%;
-  max-width: 880px;
+  max-width: 1000px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -81,15 +136,11 @@
   word-break: keep-all;
 }
 
-.result_additional_info_container .title {
-  font-size: 25px;
-  margin-left: 20px;
-}
-
 .result_additional_info_container .good_and_bad {
   width: 100%;
 }
 .good_and_bad .title {
+  font-size: 28px;
   margin-left: 3px;
   margin-bottom: 20px;
 }
@@ -97,10 +148,11 @@
 .good_and_bad .info {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .good_and_bad .small_title {
-  font-size: 20px;
+  font-size: 26px;
   margin-bottom: 10px;
 }
 
@@ -108,29 +160,42 @@
   padding: 0;
   margin: 0;
   list-style-type: "- ";
-  padding-inline-start: 5px;
+  padding-inline-start: 15px;
   font-weight: 450;
+  opacity: 60%;
 }
 
 .good_and_bad li {
-  margin-bottom: 8px;
-  font-size: 18px;
+  margin-bottom: 35px;
+  font-size: 20px;
 }
 
 .good_info {
-  width: 48%;
+  width: 450px;
 }
 .bad_info {
-  width: 48%;
+  width: 450px;
 }
 
-.result_additional_info_container .how_to_get_along {
+/*
+*
+* result additional info / HOW TO GET ALONG
+*
+*/
+
+.how_to_get_along {
+  font-family: "Noto Sans CJK KR", sans-serif;
+  display: flex;
+  flex-direction: column;
   width: 100%;
-  margin-top: 100px;
+  max-width: 480px;
+  align-items: center;
 }
 
 .how_to_get_along .title {
-  margin-bottom: 30px;
+  margin-bottom: 50px;
+  font-weight: 550;
+  font-size: 28px;
 }
 
 .how_to_get_along .info {
@@ -138,15 +203,18 @@
 }
 
 .how_to_get_along ol {
+  width: 100%;
   padding: 0;
   margin: 0;
-  margin-left: 35px;
-  padding-inline-start: 5px;
-  font-size: 21px;
+  margin-left: 20px;
+  padding-inline-start: 50px;
+  font-size: 23px;
   font-weight: 450;
+  line-height: 40px;
+  word-break: keep-all;
 }
 .how_to_get_along li {
-  margin-bottom: 13px;
+  margin-bottom: 30px;
 }
 
 .result_buttons {
@@ -183,19 +251,24 @@
   display: flex;
   justify-content: center;
 }
+.share_method .to_clipboard {
+  width: 40px;
+  height: 40px;
+}
+
+.share_method .to_kakao {
+  width: 40px;
+  height: 40px;
+}
 
 .share_method .method img {
   width: 40px;
-  height: auto;
+  height: 40px;
 }
 
 @media only screen and (max-width: 1200px) {
   .mask_circle {
     right: 50%;
     transform: translate(50%, -50%);
-  }
-  .result_basic_information {
-    font-size: 16px;
-    line-height: 30px;
   }
 }

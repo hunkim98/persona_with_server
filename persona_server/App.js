@@ -60,11 +60,17 @@ app.post("/shareData", (req, res) => {
       response.end();
       return;
     }
-    res.json({
-      status: "success",
-      name: docs.name,
-      personality: docs.personality,
-    });
+    if (docs !== null) {
+      res.json({
+        status: "success",
+        name: docs.name,
+        personality: docs.personality,
+      });
+    } else {
+      res.json({
+        status: "false",
+      });
+    }
   });
 });
 

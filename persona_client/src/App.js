@@ -72,7 +72,10 @@ function App() {
           )}
         />
         <Route path="/data" render={(props) => <UserData />} />
-        <Route path="/share/:id" render={(props) => <Share />} />
+        <Route
+          path="/share/:id"
+          render={(props) => <Share {...props} changeColor={changeColor} />}
+        />
       </Switch>
     </div>
   );

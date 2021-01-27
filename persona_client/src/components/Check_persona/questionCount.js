@@ -1,6 +1,5 @@
-import React from 'react';
-import { numbers, plusOne } from './numbers';
-import { Spring } from 'react-spring/renderprops';
+import React from "react";
+import { numbers, plusOne } from "./numbers";
 
 function questionCount({ questionNumber, harmonic, hornevian }) {
   return (
@@ -49,6 +48,7 @@ function questionCount({ questionNumber, harmonic, hornevian }) {
           width="135"
           height="70"
           viewBox="0 0 135.31 69.39"
+          opacity="40%"
         >
           <path
             d="M59.66,67.39h41a32.7,32.7,0,0,0,32.7-32.7h0A32.7,32.7,0,0,0,100.62,2h-25"

@@ -1,6 +1,6 @@
-import React from 'react';
-import { useHistory } from 'react-router-dom';
-import './lastQuestion.css';
+import React from "react";
+import { useHistory } from "react-router-dom";
+import "./lastQuestion.css";
 
 function LastQuestion({
   types_adjectives,
@@ -12,26 +12,25 @@ function LastQuestion({
   const history = useHistory();
 
   const decided_personality = (type) => {
-    if (type === 'AX') {
-      setPersonality('the Enthusiast');
-    } else if (type === 'AY') {
-      setPersonality('the Challenger');
-    } else if (type === 'AZ') {
-      setPersonality('the Achiever');
-    } else if (type === 'BX') {
-      setPersonality('the Peacekeeper');
-    } else if (type === 'BY') {
-      setPersonality('the Individualist');
-    } else if (type === 'BZ') {
-      setPersonality('the Observer');
-    } else if (type === 'CX') {
-      setPersonality('the Helper');
-    } else if (type === 'CY') {
-      setPersonality('the Loyalist');
-    } else if (type === 'CZ') {
-      setPersonality('the Reformist');
+    if (type === "AX") {
+      setPersonality(7);
+    } else if (type === "AY") {
+      setPersonality(8);
+    } else if (type === "AZ") {
+      setPersonality(3);
+    } else if (type === "BX") {
+      setPersonality(9);
+    } else if (type === "BY") {
+      setPersonality(4);
+    } else if (type === "BZ") {
+      setPersonality(5);
+    } else if (type === "CX") {
+      setPersonality(2);
+    } else if (type === "CY") {
+      setPersonality(6);
+    } else if (type === "CZ") {
+      setPersonality(1);
     }
-    history.push('result');
   };
 
   const show_possible_options = () => {
@@ -47,7 +46,7 @@ function LastQuestion({
               className="last_options"
             >
               {types_adjectives[j].adjective}
-            </div>,
+            </div>
           );
         }
       }

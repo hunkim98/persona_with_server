@@ -27,6 +27,8 @@
   transform: translate(-50%, -50%);
 }
 .persona_check_container {
+  height: 70vh;
+  min-height: 500px;
   position: relative;
   z-index: 5;
   width: 75%;
@@ -35,22 +37,23 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
 .persona_question {
-  font-family: 'Noto Sans CJK KR', sans-serif;
+  font-family: "Noto Sans CJK KR", sans-serif;
   width: 100%;
   max-width: 500px;
   font-size: 19px;
   font-weight: 500;
-  margin-top: 60px;
+  margin-top: 5vh;
   line-height: 40px;
   text-align: center;
 }
 
 .hornevian_answer_container {
   margin-top: 40px;
-  font-family: 'Noto Sans CJK KR', sans-serif;
+  font-family: "Noto Sans CJK KR", sans-serif;
   font-size: 15px;
   height: 240px;
   font-weight: 400;
@@ -76,7 +79,7 @@
 
 .OX_answer_container {
   margin-top: 50px;
-  font-family: 'Noto Sans CJK KR', serif;
+  font-family: "Noto Sans CJK KR", serif;
   font-weight: 500;
   width: 100%;
   max-width: 800px;
@@ -177,6 +180,6 @@
 }
 
 .in_between_title {
-  font-family: 'Noto Serif KR', serif;
+  font-family: "Noto Serif KR", serif;
   font-size: 30px;
 }

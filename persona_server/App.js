@@ -1,7 +1,7 @@
 const { response } = require("express");
 const express = require("express");
 const app = express();
-const port = 5000;
+const port = process.env.PORT || 5000;
 const fs = require("fs");
 const Datastore = require("nedb");
 
@@ -48,7 +48,11 @@ app.post("/sendData", (req, res) => {
       return;
     }
     console.log({ id: docs._id });
-    res.json({ status: "success", id: docs._id, name: req.body.name });
+    res.json({
+      status: "success",
+      id: docs._id,
+      name: req.body.name,
+    });
   });
 });
 

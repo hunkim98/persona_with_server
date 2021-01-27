@@ -1,4 +1,5 @@
 .result_container {
+  margin-top: 10px;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -6,12 +7,33 @@
   padding: 0 30px 0 30px;
 }
 .result_pattern_container {
-  max-width: 1200px;
+  position: relative;
+  width: 1200px;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+}
+
+.result_comment {
+  font-family: "Noto Sans CJK KR", sans-serif;
+  font-size: 43px;
+  font-weight: 600;
+  color: #acaac5;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+}
+
+.comment_left {
+  position: absolute;
+  left: 20px;
+}
+
+.comment_right {
+  position: absolute;
+  right: 55px;
 }
 
 .result_pattern_control1 {
@@ -51,7 +73,6 @@
 
 .mask_line:last-child {
   margin-top: 30px;
-  margin-bottom: 70px;
 }
 
 /*
@@ -68,7 +89,7 @@
   font-size: 32px;
   font-weight: 550;
   justify-content: center;
-  margin-top: 30px;
+  margin-top: 100px;
 }
 
 .result_acquaintance_name {
@@ -115,7 +136,6 @@
   margin: 0 10px 0 10px;
   width: 60px;
   height: auto;
-  opacity: 20%;
 }
 
 .result_divide .line {
@@ -125,9 +145,13 @@
   opacity: 30%;
 }
 
+.result_divide .white_line {
+  border-color: white;
+}
+
 .result_additional_info_container {
   width: 100%;
-  max-width: 1000px;
+  max-width: 950px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -140,20 +164,19 @@
   width: 100%;
 }
 .good_and_bad .title {
-  font-size: 28px;
-  margin-left: 3px;
-  margin-bottom: 20px;
+  font-size: 32px;
+  margin-bottom: 40px;
 }
 
 .good_and_bad .info {
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
+  font-size: 20px;
 }
 
 .good_and_bad .small_title {
   font-size: 26px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .good_and_bad ul {
@@ -167,11 +190,11 @@
 
 .good_and_bad li {
   margin-bottom: 35px;
-  font-size: 20px;
 }
 
 .good_info {
   width: 450px;
+  margin-right: 10px;
 }
 .bad_info {
   width: 450px;
@@ -188,57 +211,76 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 480px;
-  align-items: center;
+  max-width: 580px;
+  color: white;
+  opacity: 80%;
 }
 
 .how_to_get_along .title {
+  align-self: center;
   margin-bottom: 50px;
   font-weight: 550;
-  font-size: 28px;
+  font-size: 32px;
 }
 
 .how_to_get_along .info {
-  font-weight: 450;
+  font-weight: 600;
 }
 
 .how_to_get_along ol {
-  width: 100%;
   padding: 0;
   margin: 0;
-  margin-left: 20px;
-  padding-inline-start: 50px;
   font-size: 23px;
-  font-weight: 450;
   line-height: 40px;
   word-break: keep-all;
+  padding-inline-start: 55px;
+  opacity: 80%;
 }
 .how_to_get_along li {
   margin-bottom: 30px;
 }
 
-.result_buttons {
+.result_button_container {
   margin-top: 100px;
   font-family: "Noto Sans CJK KR", sans-serif;
   display: flex;
   flex-direction: row;
+  color: #ffffff;
+  margin-bottom: 100px;
+  font-size: 15px;
+  height: 125px;
 }
 
-.result_buttons .share_result {
+.result_button_container .share_result {
   width: 150px;
-  background-color: aliceblue;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
   position: relative;
 }
 
-.result_buttons .another_test {
+.result_button_container .another_test {
   width: 150px;
   display: flex;
-  background-color: rgb(138, 138, 138);
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.result_button {
+  width: 90px;
+  height: 90px;
+  display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #635f87;
+  border-radius: 45px;
+}
+
+.result_button .share_button {
+  width: 50px;
+  height: 50px;
 }
 .share_method {
   top: -60px;
@@ -246,29 +288,101 @@
   display: flex;
   flex-direction: row;
 }
+.share_method .method_container {
+  display: flex;
+  position: absolute;
+  top: 7px;
+}
 .share_method .method {
   width: 50px;
   display: flex;
   justify-content: center;
-}
-.share_method .to_clipboard {
-  width: 40px;
-  height: 40px;
+  cursor: pointer;
 }
 
-.share_method .to_kakao {
-  width: 40px;
-  height: 40px;
+.share_method .method_background {
+  width: 100px;
+  height: auto;
 }
 
 .share_method .method img {
   width: 40px;
   height: 40px;
 }
+.result_button_container svg {
+  width: 50px;
+  height: auto;
+}
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1280px) {
+  .result_container {
+    margin-top: 50px;
+  }
   .mask_circle {
     right: 50%;
     transform: translate(50%, -50%);
+  }
+  .result_pattern_container {
+    width: 100%;
+    margin-bottom: 50px;
+  }
+  .result_pattern_control1 {
+    max-width: 700px;
+  }
+  .result_comment {
+    background: #76729f;
+    font-size: 32px;
+    width: 300px;
+  }
+  .comment_left {
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: "#76729F";
+  }
+  .comment_right {
+    bottom: 0;
+    right: 50%;
+    transform: translate(50%, 50%);
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .result_basic_information {
+    font-size: 20px;
+    line-height: 40px;
+  }
+  .result_mask_information {
+    font-size: 30px;
+  }
+  .good_and_bad .info {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    font-size: 18px;
+  }
+  .good_and_bad .title {
+    font-size: 26px;
+  }
+  .good_and_bad .small_title {
+    font-size: 23px;
+  }
+  .good_info {
+    width: 100%;
+    margin-bottom: 60px;
+  }
+  .bad_info {
+    width: 100%;
+  }
+  .how_to_get_along {
+    max-width: 360px;
+  }
+  .how_to_get_along .title {
+    font-size: 22px;
+  }
+  .how_to_get_along ol {
+    font-size: 18px;
+    padding-inline-start: 30px;
+    line-height: 30px;
   }
 }

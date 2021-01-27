@@ -1,25 +1,29 @@
-import React from 'react';
-import { useHistory } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import { Spring } from 'react-spring/renderprops';
-import LastQuestion from './lastQuestion';
-import QuestionCount from './questionCount';
-import { useMediaQuery } from 'react-responsive';
+import React from "react";
+import { useHistory } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Spring } from "react-spring/renderprops";
+import LastQuestion from "./lastQuestion";
+import QuestionCount from "./questionCount";
+import { useMediaQuery } from "react-responsive";
+import BackButton from "../backbutton/BackButton";
+import axios from "axios";
 
 let hornevian_result = [];
 let harmonic_result = [];
 
 function CheckPersonaChild({
+  name,
   questionNumber,
   setQuestionNumber,
   hornevian,
   harmonic,
-  setPersonality,
-  name,
   types_adjectives,
+  shareID,
+  setShareID,
 }) {
+  const [personality, setPersonality] = useState(0);
   const isDesktopOrMobile = useMediaQuery({
-    query: '(min-width:1000px)',
+    query: "(min-width:1000px)",
   });
   const history = useHistory();
 
@@ -36,7 +40,7 @@ function CheckPersonaChild({
     } else {
       //this is for harmonic
       if (questionNumber === harmonic.length + hornevian.length) {
-        console.log('reached the end');
+        console.log("reached the end");
       } else {
         setQuestionNumber((previousNumber) => previousNumber + 1);
       }
@@ -47,7 +51,7 @@ function CheckPersonaChild({
     if (questionNumber < hornevian.length) {
       return hornevian[questionNumber].question;
     } else if (questionNumber === harmonic.length + hornevian.length) {
-      return name + '님에게 가장 어울리는 수식어 하나는?';
+      return name + "님에게 가장 어울리는 수식어 하나는?";
     } else {
       return harmonic[questionNumber - hornevian.length].question;
     }
@@ -79,24 +83,24 @@ function CheckPersonaChild({
     let hornevian_type = [0, 0, 0];
     let decided_hornevian = [];
     for (let i = 0; i < hornevian_result.length; i++) {
-      if (hornevian_result[i] === 'A') {
+      if (hornevian_result[i] === "A") {
         hornevian_type[0]++;
-      } else if (hornevian_result[i] === 'W') {
+      } else if (hornevian_result[i] === "W") {
         hornevian_type[1]++;
-      } else if (hornevian_result[i] === 'C') {
+      } else if (hornevian_result[i] === "C") {
         hornevian_type[2]++;
       }
     }
     for (let j = 0; j < hornevian_type.length; j++) {
       if (Math.max(...hornevian_type) === hornevian_type[j]) {
         if (j === 0) {
-          decided_hornevian.push('A');
+          decided_hornevian.push("A");
         }
         if (j === 1) {
-          decided_hornevian.push('B');
+          decided_hornevian.push("B");
         }
         if (j === 2) {
-          decided_hornevian.push('C');
+          decided_hornevian.push("C");
         }
       }
     }
@@ -107,24 +111,24 @@ function CheckPersonaChild({
     let harmonic_type = [0, 0, 0];
     let decided_harmonic = [];
     for (let i = 0; i < harmonic_result.length; i++) {
-      if (harmonic_result[i] === 'P') {
+      if (harmonic_result[i] === "P") {
         harmonic_type[0]++;
-      } else if (harmonic_result[i] === 'C') {
+      } else if (harmonic_result[i] === "C") {
         harmonic_type[1]++;
-      } else if (harmonic_result[i] === 'B') {
+      } else if (harmonic_result[i] === "B") {
         harmonic_type[2]++;
       }
     }
     for (let j = 0; j < harmonic_type.length; j++) {
       if (Math.max(...harmonic_type) === harmonic_type[j]) {
         if (j === 0) {
-          decided_harmonic.push('X');
+          decided_harmonic.push("X");
         }
         if (j === 1) {
-          decided_harmonic.push('Y');
+          decided_harmonic.push("Y");
         }
         if (j === 2) {
-          decided_harmonic.push('Z');
+          decided_harmonic.push("Z");
         }
       }
     }
@@ -139,50 +143,49 @@ function CheckPersonaChild({
         check_hornevian_type().length === 1
       ) {
         console.log(check_hornevian_type()[0] + check_harmonic_type()[0]);
-        if (check_hornevian_type()[0] + check_harmonic_type()[0] === 'AX') {
+        if (check_hornevian_type()[0] + check_harmonic_type()[0] === "AX") {
           setPersonality(7);
         } else if (
           check_hornevian_type()[0] + check_harmonic_type()[0] ===
-          'AY'
+          "AY"
         ) {
           setPersonality(8);
         } else if (
           check_hornevian_type()[0] + check_harmonic_type()[0] ===
-          'AZ'
+          "AZ"
         ) {
           setPersonality(3);
         } else if (
           check_hornevian_type()[0] + check_harmonic_type()[0] ===
-          'BX'
+          "BX"
         ) {
           setPersonality(9);
         } else if (
           check_hornevian_type()[0] + check_harmonic_type()[0] ===
-          'BY'
+          "BY"
         ) {
           setPersonality(4);
         } else if (
           check_hornevian_type()[0] + check_harmonic_type()[0] ===
-          'BZ'
+          "BZ"
         ) {
           setPersonality(5);
         } else if (
           check_hornevian_type()[0] + check_harmonic_type()[0] ===
-          'CX'
+          "CX"
         ) {
           setPersonality(2);
         } else if (
           check_hornevian_type()[0] + check_harmonic_type()[0] ===
-          'CY'
+          "CY"
         ) {
           setPersonality(6);
         } else if (
           check_hornevian_type()[0] + check_harmonic_type()[0] ===
-          'CZ'
+          "CZ"
         ) {
           setPersonality(1);
         }
-        history.push('/result');
       } else {
         for (let i = 0; i < check_hornevian_type().length; i++) {
           for (let j = 0; j < check_harmonic_type().length; j++) {
@@ -199,6 +202,30 @@ function CheckPersonaChild({
     // eslint-disable-next-line
   }, [questionNumber]);
 
+  useEffect(() => {
+    if (personality !== 0) {
+      axios({
+        //need to move this to question page later
+        method: "POST",
+        url: "/sendData",
+        data: {
+          name: name,
+          personality: personality,
+        },
+      })
+        .then((res) => {
+          console.log(res.data.id);
+          history.push("/result/" + res.data.id);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+  }, [personality]);
+
+  const previousQuestion = () => {
+    setQuestionNumber((previousNumber) => previousNumber - 1);
+  };
   return (
     <>
       <Spring from={{ opacity: 0 }} to={{ opacity: 1 }}>
@@ -300,6 +327,9 @@ function CheckPersonaChild({
                 />
               )}
             </div>
+            {questionNumber !== 0 ? (
+              <BackButton goToBack={previousQuestion} />
+            ) : null}
           </div>
         )}
       </Spring>

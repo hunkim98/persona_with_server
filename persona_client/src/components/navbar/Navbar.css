@@ -1,17 +1,14 @@
 .navbar {
   height: 140px;
   display: flex;
-  justify-content: center;
-  align-items: center;
   z-index: 1;
+  padding-left: 3vw;
+  padding-right: 3vw;
 }
 
 .navbar_container {
-  display: flex;
   width: 100%;
-  padding-right: 50px;
-  padding-left: 50px;
-  justify-content: space-between;
+  display: flex;
   align-items: center;
   height: 100%;
 }
@@ -34,43 +31,59 @@
   justify-content: center;
   align-items: center;
   list-style: none;
-  height: 100%;
   margin: 0 0;
 }
 
 .navbar_menu {
-  font-family: 'Noto Sans KR', sans-serif;
+  width: 90px;
+  font-family: "Noto Sans KR", sans-serif;
   display: flex;
-  justify-content: center;
   align-items: center;
   font-weight: 400;
   font-size: 1rem;
-  padding: 0px 30px;
   height: 110px;
+}
+
+.navbar_menu:first-of-type {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.navbar_menu:last-of-type {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .menu_link1 {
   width: auto;
-  height: 50px;
+  height: 39px;
   display: flex;
   align-items: center;
   text-decoration: none;
   transition: all 0.3s ease;
+  margin-right: 50px;
 }
 
 .menu_link2 {
   width: auto;
-  height: 42px;
+  height: 36px;
   display: flex;
   align-items: center;
   text-decoration: none;
   transition: all 0.3s ease;
 }
 
-.menu_link1:hover {
-  height: 57px;
-}
-
-.menu_link2:hover {
-  height: 47px;
+@media screen and (max-width: 1000px) {
+  .menu_link1 {
+    margin-right: 0px;
+  }
+  .navbar_menu:first-of-type {
+    width: auto;
+    display: flex;
+    justify-content: center;
+  }
+  .navbar_container {
+    justify-content: space-between;
+  }
 }

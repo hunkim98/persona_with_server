@@ -8,11 +8,11 @@ import UserData from "./components/UserData/UserData";
 import Share from "./components/Share/Share";
 
 function App() {
-  const [personality, setPersonality] = useState(5);
   const [startBool, setStartBool] = useState([false, false, false]);
   const [name, setName] = useState("김동훈");
   const [questionNumber, setQuestionNumber] = useState(0);
   const [color, changeColor] = useState("#ffffff");
+  const [shareID, setShareID] = useState("null");
 
   return (
     <div
@@ -50,24 +50,23 @@ function App() {
           render={(props) => (
             <CheckPersona
               {...props}
-              setPersonality={setPersonality}
               name={name}
-              personality={personality}
               questionNumber={questionNumber}
               setQuestionNumber={setQuestionNumber}
               changeColor={changeColor}
+              shareID={shareID}
+              setShareID={setShareID}
             />
           )}
         />
         <Route
-          path="/result"
+          path="/result/:id"
           render={(props) => (
             <Result
               {...props}
-              personality={personality}
               changeColor={changeColor}
-              setPersonality={setPersonality}
-              name={name}
+              setShareID={setShareID}
+              shareID={shareID}
             />
           )}
         />

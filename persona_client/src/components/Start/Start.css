@@ -1,154 +1,50 @@
-.container {
+.survey_container {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 80vh;
+  padding-left: 10px;
+  padding-right: 10px;
 }
-
-.home_container {
-  position: relative;
+.basic_container {
+  height: 70vh;
+  min-height: 500px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-}
-
-.home_pattern_container {
-  max-width: 1200px;
-  display: flex;
-  flex-direction: row;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
 }
-
-.home_pattern_control {
-  width: 100%;
-  max-width: 600px;
-  position: relative;
-}
-
-.home_pattern {
-  width: 100%;
-}
-
-.home_phrase1 {
-  color: #434343;
-  width: 580px;
-  height: 150px;
-  font-family: 'Noto Sans CJK KR', sans-serif;
-  font-size: 55px;
-  font-weight: 600;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-left: -290px;
-  margin-top: -75px;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-}
-
-.home_phrase2 {
-  color: #434343;
-  width: 540px;
-  height: 150px;
-  font-family: 'Noto Sans CJK KR', sans-serif;
-  font-size: 55px;
-  font-weight: 600;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-left: -270px;
-  margin-top: -75px;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-}
-
-.home_phrase_logo {
-  width: 200px;
-  height: auto;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.home_phrase_logo:hover {
-  width: 220px;
-}
-
-.home_phrase_mask {
-  width: 200px;
-  height: auto;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.home_phrase_mask:hover {
-  width: 220px;
-}
-
-.home_phrase_mask circle {
-  transition: all 0.3s ease;
-}
-
-.home_phrase_mask:hover circle {
-  fill: #c0baff;
-}
-
-.survey_container {
-  width: 75%;
-  margin: 0 auto;
-}
-
 .name_question {
-  font-family: 'Noto Sans CJK KR', sans-serif;
+  font-family: "Noto Sans CJK KR", sans-serif;
   font-size: 35px;
-  margin-top: 150px;
   text-align: center;
   font-weight: 600;
 }
 
-.selection {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-}
-
-.start_button_container {
-  width: 100%;
-}
-
-.start_button {
-  max-width: 100%;
-  padding-top: 100%;
-  background-color: cornflowerblue;
-  border-radius: 50%;
-  margin: 50px auto;
-}
-
 .name_input_container {
-  width: 450px;
+  width: 80%;
   height: 60px;
-  margin-top: 8vh;
+  margin-top: 50px;
   border: 2px solid rgb(0, 0, 0);
+  background: white;
   display: flex;
   align-items: center;
 }
 
 .name_input {
+  background: none;
   width: calc(100% - 60px);
-  height: 96%;
+  height: 90%;
   border: none;
   border-width: 0;
   box-shadow: none;
   font-size: 18px;
-  font-family: 'Noto Sans CJK KR', sans-serif;
+  font-family: "Noto Sans CJK KR", sans-serif;
   font-weight: 500;
 }
 
 .name_input:focus {
-  outline-width: 0;
+  outline: none;
 }
 
 .name_input_enter {
@@ -157,13 +53,13 @@
   border-width: 0 0 0 2px; /* top right bottom left */
   border-color: #000000;
   background: white;
-  padding: 0.5rem;
   cursor: pointer;
   font-size: 2rem;
   transition: all 0.3s ease;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 0;
 }
 .name_input_enter:hover {
   background: #c0baff;
@@ -175,7 +71,9 @@
 }
 
 .name_comment {
-  font-family: 'Noto Sans CJK KR', sans-serif;
+  font-family: "Noto Sans CJK KR", sans-serif;
+  display: flex;
+  justify-content: center;
   margin-top: 30px;
   font-weight: 500;
   color: #000000;
@@ -183,7 +81,7 @@
 
 .yes_no_container {
   display: flex;
-  margin-top: 60px;
+  margin-top: 30px;
   width: 100%;
   max-width: 500px;
   height: 200px;
@@ -199,7 +97,7 @@
   align-items: center;
   text-decoration: none;
   color: inherit;
-  font-family: 'Noto Sans CJK KR', sans-serif;
+  font-family: "Noto Sans CJK KR", sans-serif;
   font-size: 25px;
   font-weight: 600;
   border: 3px solid #000000;
@@ -228,8 +126,6 @@
     height: 400px;
   }
   .name_input_container {
-    margin-top: 8vh;
-    width: 350px;
     height: 60px;
   }
 }

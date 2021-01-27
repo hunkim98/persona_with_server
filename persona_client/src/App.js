@@ -6,6 +6,7 @@ import CheckPersona from "./components/Check_persona/check_persona";
 import Result from "./components/Result/Result";
 import UserData from "./components/UserData/UserData";
 import Share from "./components/Share/Share";
+import Home from "./components/Start/Home";
 
 function App() {
   const [startBool, setStartBool] = useState([false, false, false]);
@@ -45,6 +46,7 @@ function App() {
             />
           )}
         />
+        <Route path="/home" render={(props) => <Home />} />
         <Route
           path="/check_persona"
           render={(props) => (

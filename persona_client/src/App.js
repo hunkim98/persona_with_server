@@ -7,13 +7,15 @@ import Result from "./components/Result/Result";
 import UserData from "./components/UserData/UserData";
 import Share from "./components/Share/Share";
 import Home from "./components/Start/Home";
+import About from "./components/about/About";
+import Masks from "./components/masks/Masks";
+import Explanation from "./components/masks/Explanation";
 
 function App() {
-  const [startBool, setStartBool] = useState([false, false, false]);
-  const [name, setName] = useState("김동훈");
+  const [startBool, setStartBool] = useState([false, false]);
+  const [name, setName] = useState("");
   const [questionNumber, setQuestionNumber] = useState(0);
   const [color, changeColor] = useState("#ffffff");
-  const [shareID, setShareID] = useState("null");
 
   return (
     <div
@@ -23,6 +25,7 @@ function App() {
         minHeight: "100vh",
         margin: 0,
         padding: 0,
+        boxSizing: "border-box",
       }}
       id="main"
     >
@@ -43,34 +46,28 @@ function App() {
               startBool={startBool}
               name={name}
               setName={setName}
+              questionNumber={questionNumber}
+              setQuestionNumber={setQuestionNumber}
+              changeColor={changeColor}
             />
           )}
         />
         <Route path="/home" render={(props) => <Home />} />
+        <Route path="/about" render={(props) => <About />} />
         <Route
-          path="/check_persona"
+          path="/masks"
+          exact
+          render={(props) => <Masks {...props} changeColor={changeColor} />}
+        />
+        <Route
+          path="/masks/:id"
           render={(props) => (
-            <CheckPersona
-              {...props}
-              name={name}
-              questionNumber={questionNumber}
-              setQuestionNumber={setQuestionNumber}
-              changeColor={changeColor}
-              shareID={shareID}
-              setShareID={setShareID}
-            />
+            <Explanation {...props} changeColor={changeColor} />
           )}
         />
         <Route
           path="/result/:id"
-          render={(props) => (
-            <Result
-              {...props}
-              changeColor={changeColor}
-              setShareID={setShareID}
-              shareID={shareID}
-            />
-          )}
+          render={(props) => <Result {...props} changeColor={changeColor} />}
         />
         <Route path="/data" render={(props) => <UserData />} />
         <Route

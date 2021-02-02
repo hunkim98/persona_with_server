@@ -18,8 +18,6 @@ function CheckPersonaChild({
   hornevian,
   harmonic,
   types_adjectives,
-  shareID,
-  setShareID,
 }) {
   const [personality, setPersonality] = useState(0);
   const isDesktopOrMobile = useMediaQuery({
@@ -223,6 +221,11 @@ function CheckPersonaChild({
     }
   }, [personality]);
 
+  useEffect(() => {
+    setPersonality(0);
+    setQuestionNumber(0);
+  }, []);
+
   const previousQuestion = () => {
     setQuestionNumber((previousNumber) => previousNumber - 1);
   };
@@ -326,10 +329,12 @@ function CheckPersonaChild({
                   setPersonality={setPersonality}
                 />
               )}
+              {questionNumber !== 0 ? (
+                <BackButton goToBack={previousQuestion} />
+              ) : (
+                <div className="empty_space_for_question1"></div>
+              )}
             </div>
-            {questionNumber !== 0 ? (
-              <BackButton goToBack={previousQuestion} />
-            ) : null}
           </div>
         )}
       </Spring>

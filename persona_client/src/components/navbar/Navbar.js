@@ -38,7 +38,7 @@ function Navbar({ setStartBool, setName, setQuestionNumber, changeColor }) {
                   </Link>
                 </div>
                 <div className="navbar_menu">
-                  <Link to="/masks" onClick={() => changeColor("#ffffff")}>
+                  <Link to="/masks">
                     <svg
                       className="menu_link2"
                       xmlns="http://www.w3.org/2000/svg"

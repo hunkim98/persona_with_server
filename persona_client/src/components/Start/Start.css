@@ -6,24 +6,36 @@
   padding-left: 10px;
   padding-right: 10px;
 }
+
 .basic_container {
-  height: 70vh;
-  min-height: 500px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
+
+.second_page_basic {
+  height: 70vh;
+  min-height: 400px;
+}
+.first_page_basic {
+  height: 65vh;
+  min-height: 300px;
+}
+
 .name_question {
   font-family: "Noto Sans CJK KR", sans-serif;
   font-size: 35px;
   text-align: center;
   font-weight: 600;
+  word-break: keep-all;
+  display: flex;
+  flex-direction: row;
 }
 
 .name_input_container {
   width: 80%;
-  height: 60px;
+  height: 50px;
   margin-top: 50px;
   border: 2px solid rgb(0, 0, 0);
   background: white;
@@ -79,19 +91,38 @@
   color: #000000;
 }
 
+/* second page */
+
+.continue_question {
+  font-family: "Noto Sans CJK KR", sans-serif;
+  font-size: 35px;
+  text-align: center;
+  font-weight: 600;
+  word-break: keep-all;
+}
+
+.question_logo {
+  margin-left: 30px;
+  margin-right: 10px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  width: 120px;
+  height: auto;
+  vertical-align: middle;
+}
+
 .yes_no_container {
+  margin-top: 50px;
   display: flex;
-  margin-top: 30px;
   width: 100%;
-  max-width: 500px;
-  height: 200px;
-  justify-content: space-around;
+  max-width: 400px;
   align-items: center;
+  justify-content: center;
 }
 
 .yes_no_square {
-  width: 130px;
-  height: 130px;
+  width: 115px;
+  height: 115px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -104,28 +135,85 @@
   transition: all 0.3s ease;
 }
 
-.yes_no_square:hover {
-  width: 140px;
-  height: 140px;
-  font-size: 35px;
+.left_yes {
+  background: #ff7675;
+  margin-right: 5%;
 }
 
-@media screen and (max-width: 900px) {
-  .subtitle {
-    font-size: 25px;
+.right_no {
+  margin-left: 5%;
+  background: #00cec9;
+}
+
+/*
+*
+* rotate css
+*
+*/
+
+.basic_container .rotate {
+  width: 50px;
+  height: auto;
+  margin-bottom: 40px;
+  -webkit-animation: rotating 3s linear infinite;
+  -moz-animation: rotating 3s linear infinite;
+  -ms-animation: rotating 3s linear infinite;
+  -o-animation: rotating 3s linear infinite;
+  animation: rotating 3s linear infinite;
+}
+
+@-webkit-keyframes rotating /* Safari and Chrome */ {
+  from {
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
   }
-  .question {
-    font-size: 25px;
+  to {
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
   }
-  .one_circle {
-    width: 150px;
-    height: 150px;
-    font-size: 25px;
+}
+
+@keyframes rotating {
+  from {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
   }
-  .two_circles {
-    height: 400px;
+  to {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
   }
-  .name_input_container {
-    height: 60px;
+}
+
+/*
+*
+* rotate css end
+*
+*/
+
+@media screen and (max-width: 1000px) {
+  .name_question {
+    font-size: 28px;
+  }
+  .continue_question {
+    font-size: 28px;
+  }
+  .question_logo {
+    width: 80px;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .yes_no_square:hover {
+    width: 140px;
+    height: 140px;
+    font-size: 30px;
   }
 }

@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import mask_pattern_white from "../svg/mask_pattern_white.svg";
 import "./Result.css";
-import { mask_circle } from "./mask_result";
+import { show_mask } from "./mask_result";
 import { useMediaQuery } from "react-responsive";
-import { mask_names, mask_basic_info, mask_get_along } from "./mask_info";
-import { maskGoodBad } from "./mask_good_bad";
+import { show_mask_name, show_basic_info, show_get_along } from "./mask_info";
+import { show_good_bad } from "./mask_good_bad";
 import axios from "axios";
 import copy_link_button from "../share_img/copy_link.png";
 import kakao_button from "../share_img/kakao.png";
@@ -15,13 +15,15 @@ import { CopyToClipboard } from "react-copy-to-clipboard";
 import { Spring } from "react-spring/renderprops";
 import { useParams } from "react-router-dom";
 
-function Result({ changeColor, shareID, setShareID }) {
+function Result({ changeColor }) {
   let { id } = useParams();
   const [personality, setPersonality] = useState(1);
+  const [shareID, setShareID] = useState("");
   //do not use usestate(0). it does not work
   const [name, setName] = useState("NONE");
   useEffect(() => {
     changeColor("#76729F");
+    window.scrollTo(0, 0);
     if (!window.Kakao.isInitialized()) {
       console.log("initialized kakao");
       //initialize kakaotalk only once
@@ -59,26 +61,6 @@ function Result({ changeColor, shareID, setShareID }) {
   const isDesktopOrMobile = useMediaQuery({
     query: "(max-width:1280px)",
   });
-
-  const show_mask = () => {
-    return mask_circle[personality - 1];
-  };
-
-  const show_mask_name = () => {
-    return mask_names[personality - 1];
-  };
-
-  const show_basic_info = () => {
-    return mask_names[personality - 1] + mask_basic_info[personality - 1];
-  };
-  const show_get_along = () => {
-    return mask_get_along[personality - 1].map((list) => <li>{list}</li>);
-  };
-  const show_good_bad = (goodBad) => {
-    return maskGoodBad[personality - 1][goodBad].info.map((list) => (
-      <li>{list}</li>
-    ));
-  };
 
   const share_kakao_url = () => {
     let url = "https://hunkim98.github.io/persona/imgUrl/";
@@ -128,12 +110,16 @@ function Result({ changeColor, shareID, setShareID }) {
                 </div>
                 <div className="result_pattern_control1">
                   <div className="mask_result_container">
-                    <img className="mask_circle" src={show_mask()} alt="" />
+                    <img
+                      className="mask_circle"
+                      src={show_mask(personality)}
+                      alt=""
+                    />
                   </div>
                   <img
                     className="result_pattern"
                     src={mask_pattern_white}
-                    alt=""
+                    alt="pattern_white"
                   />
                 </div>
                 {!isDesktopOrMobile ? (
@@ -141,7 +127,7 @@ function Result({ changeColor, shareID, setShareID }) {
                     <img
                       className="result_pattern"
                       src={mask_pattern_white}
-                      alt=""
+                      alt="pattern_white"
                     />
                   </div>
                 ) : null}
@@ -153,12 +139,12 @@ function Result({ changeColor, shareID, setShareID }) {
               <div className="result_mask_information">
                 <div className="result_acquaintance_name">{name}님의 가면:</div>
                 <div className="result_personality">
-                  "{show_mask_name()}" 가면
+                  "{show_mask_name(personality)}" 가면
                 </div>
               </div>
               <div className="result_basic_info_container">
                 <div className="result_basic_information">
-                  {show_basic_info()}
+                  {show_basic_info(personality)}
                 </div>
               </div>
               <div className="result_divide">
@@ -180,11 +166,11 @@ function Result({ changeColor, shareID, setShareID }) {
                   <div className="info">
                     <div className="good_info">
                       <div className="small_title">장점</div>
-                      <ul>{show_good_bad(0)}</ul>
+                      <ul>{show_good_bad(personality, 0)}</ul>
                     </div>
                     <div className="bad_info">
                       <div className="small_title">단점</div>
-                      <ul>{show_good_bad(1)}</ul>
+                      <ul>{show_good_bad(personality, 1)}</ul>
                     </div>
                   </div>
                 </div>
@@ -205,7 +191,7 @@ function Result({ changeColor, shareID, setShareID }) {
                 <div className="title">
                   [해당 가면을 지닌 사람과 잘 지내려면?]
                 </div>
-                <ol className="info">{show_get_along()}</ol>
+                <ol className="info">{show_get_along(personality)}</ol>
               </div>
               <div className="result_button_container">
                 <div className="share_result">
@@ -267,6 +253,9 @@ function Result({ changeColor, shareID, setShareID }) {
                   <div className="comment">다른 페르소나 찾기</div>
                 </div>
               </div>
+              <a class="poomang_comment" href="https://poomang.com/">
+                다른 성격심리테스트하러 가기
+              </a>
             </div>
           </div>
         )}

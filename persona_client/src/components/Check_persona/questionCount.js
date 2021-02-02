@@ -1,5 +1,6 @@
 import React from "react";
 import { numbers, plusOne } from "./numbers";
+import "./questionCount.css";
 
 function questionCount({ questionNumber, harmonic, hornevian }) {
   return (

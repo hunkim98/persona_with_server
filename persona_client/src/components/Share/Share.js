@@ -67,6 +67,7 @@ function Share({ changeColor }) {
         console.log(error);
       });
     changeColor("#76729F");
+    window.scrollTo(0, 0);
   }, []);
 
   return (

@@ -1,11 +1,11 @@
 .mask_collection_container {
-  padding-left: 30px;
-  padding-right: 30px;
+  padding-left: 3vw;
+  padding-right: 3vw;
 }
 
 .mask_collection {
   width: 100%;
-  min-width: 360px;
+  min-width: 340px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -13,7 +13,7 @@
 
 .mask_collection .mask_container {
   width: 15%;
-  min-width: 180px;
+  min-width: 170px;
   display: flex;
   flex-direction: column;
   align-items: center;

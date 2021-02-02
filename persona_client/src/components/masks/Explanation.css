@@ -1,11 +1,12 @@
 .explanation_container {
-  padding-left: 30px;
-  padding-right: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
   display: flex;
   justify-content: center;
   position: relative;
   min-height: 800px;
   align-content: center;
+  min-width: 320px;
 }
 
 .explanation_pattern {
@@ -103,7 +104,8 @@
   padding: 0;
   list-style-type: "- ";
   padding-inline-start: 15px;
-  font-size: 17px;
+  font-size: 18px;
+  font-weight: 500;
   word-break: keep-all;
   opacity: 60%;
 }
@@ -134,7 +136,7 @@
   .mask_explanation_info .name {
     display: flex;
     justify-content: center;
-    font-size: 35px;
+    font-size: 30px;
     margin-top: 40px;
     margin-bottom: 30px;
   }

@@ -4,7 +4,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 30px 0 30px;
+  padding: 0 20px 0 20px;
+  min-width: 320px;
 }
 .result_pattern_container {
   position: relative;
@@ -337,8 +338,8 @@
   }
   .result_comment {
     background: #76729f;
-    font-size: 32px;
-    width: 300px;
+    font-size: 40px;
+    width: 400px;
   }
   .comment_left {
     top: 0;
@@ -359,7 +360,11 @@
     line-height: 40px;
   }
   .result_mask_information {
-    font-size: 30px;
+    font-size: 26px;
+  }
+  .result_comment {
+    font-size: 28px;
+    width: 250px;
   }
   .good_and_bad .info {
     display: flex;

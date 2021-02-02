@@ -254,7 +254,7 @@ function Result({ changeColor }) {
                 </div>
               </div>
               <a class="poomang_comment" href="https://poomang.com/">
-                다른 성격심리테스트하러 가기
+                다른 성격심리테스트하러 가기!
               </a>
             </div>
           </div>

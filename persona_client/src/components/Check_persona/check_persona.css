@@ -27,6 +27,7 @@
   transform: translate(-50%, -50%);
 }
 .persona_check_container {
+  min-width: 340px;
   height: 60vh;
   min-height: 650px;
   position: relative;

@@ -22,9 +22,13 @@ function About() {
               <div className="about_logo_container">
                 <div className="about_pattern">
                   {!isDesktopOrMobile ? (
-                    <img class="desktop_pattern" src={desktop_left} alt="" />
+                    <img
+                      className="desktop_pattern"
+                      src={desktop_left}
+                      alt=""
+                    />
                   ) : (
-                    <img class="mobile_pattern1" src={mobile_left} alt="" />
+                    <img className="mobile_pattern1" src={mobile_left} alt="" />
                   )}
                 </div>
                 <div className="signature">
@@ -32,9 +36,17 @@ function About() {
                 </div>
                 <div className="about_pattern">
                   {!isDesktopOrMobile ? (
-                    <img class="desktop_pattern" src={desktop_right} alt="" />
+                    <img
+                      className="desktop_pattern"
+                      src={desktop_right}
+                      alt=""
+                    />
                   ) : (
-                    <img class="mobile_pattern2" src={mobile_right} alt="" />
+                    <img
+                      className="mobile_pattern2"
+                      src={mobile_right}
+                      alt=""
+                    />
                   )}
                 </div>
               </div>

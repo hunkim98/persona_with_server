@@ -12,7 +12,7 @@ function Masks({ changeColor }) {
 
   const mask_data = () => {
     return mask_raw.map((mask, index) => (
-      <div className="mask_container">
+      <div className="mask_container" key={index}>
         <Link to={"/masks/" + (index + 1)}>
           <img className="mask_img" src={mask} alt="mask" />
         </Link>

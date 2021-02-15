@@ -5,6 +5,12 @@ import { Link } from "react-router-dom";
 import { Spring } from "react-spring/renderprops";
 
 function Navbar({ setStartBool, setName, setQuestionNumber, changeColor }) {
+  const initialize = () => {
+    setStartBool([false, false, false]);
+    setName("");
+    setQuestionNumber(0);
+    changeColor("#ffffff");
+  };
   return (
     <>
       <Spring from={{ opacity: 0 }} to={{ opacity: 1 }}>
@@ -12,7 +18,7 @@ function Navbar({ setStartBool, setName, setQuestionNumber, changeColor }) {
           <div style={props}>
             <div className="navbar">
               <div className="navbar_container">
-                <Link to="/">
+                <Link to="/" onClick={initialize}>
                   <div className="logo_container">
                     <img className="navbar_logo" src={logo} alt="persona" />
                   </div>

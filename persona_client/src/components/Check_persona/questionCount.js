@@ -55,15 +55,15 @@ function questionCount({ questionNumber, harmonic, hornevian }) {
             d="M59.66,67.39h41a32.7,32.7,0,0,0,32.7-32.7h0A32.7,32.7,0,0,0,100.62,2h-25"
             fill="none"
             stroke="#000"
-            stroke-miterlimit="10"
-            stroke-width="4"
+            strokeMiterlimit="10"
+            strokeWidth="4"
           />
           <path
             d="M59.66,67.39h-25A32.7,32.7,0,0,1,2,34.69H2A32.7,32.7,0,0,1,34.69,2h41"
             fill="none"
             stroke="#000"
-            stroke-miterlimit="10"
-            stroke-width="4"
+            strokeMiterlimit="10"
+            strokeWidth="4"
           />
           <foreignObject
             display="flex"

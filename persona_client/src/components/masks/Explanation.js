@@ -39,10 +39,10 @@ function Explanation({ changeColor }) {
 
               <div className="mask_explanation">
                 <div className="mask_image">
-                  <img class="mask_svg" src={show_mask(id)} alt="mask" />
+                  <img className="mask_svg" src={show_mask(id)} alt="mask" />
                   {isDesktopOrMobile ? (
                     <img
-                      class="mobile_explanation_pattern"
+                      className="mobile_explanation_pattern"
                       src={pattern_black}
                       alt="black"
                     />

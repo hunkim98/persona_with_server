@@ -9,7 +9,6 @@ import pattern_left from "./pattern_left.svg";
 import pattern_right from "./pattern_right.svg";
 import { Spring } from "react-spring/renderprops";
 import pattern_black from "./pattern_black.svg";
-import BackButton from "../backbutton/BackButton";
 
 function Explanation({ changeColor }) {
   let { id } = useParams();

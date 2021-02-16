@@ -28,5 +28,5 @@
 .mask_collection .mask_index {
   width: 25%;
   height: auto;
-  opacity: 50%;
+  opacity: 0.5;
 }

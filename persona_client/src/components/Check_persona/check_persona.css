@@ -6,7 +6,7 @@
   min-height: 640px;
   width: auto;
   position: absolute;
-  opacity: 4%;
+  opacity: 0.04;
 }
 .question_pattern2 {
   position: absolute;
@@ -17,11 +17,11 @@
   width: auto;
   margin-right: 30px;
   right: 0;
-  opacity: 4%;
+  opacity: 0.04;
 }
 .question_pattern_mobile {
   position: absolute;
-  opacity: 4%;
+  opacity: 0.04;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
@@ -88,7 +88,7 @@
   cursor: pointer;
 }
 .question_notsure {
-  opacity: 40%;
+  opacity: 0.4;
 }
 
 .question_icon_container1 {
@@ -111,7 +111,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  opacity: 40%;
+  opacity: 0.4;
   margin-bottom: 10px;
 }
 

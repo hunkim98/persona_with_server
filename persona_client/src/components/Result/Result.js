@@ -52,7 +52,7 @@ function Result({ changeColor }) {
       });
   }, []);
 
-  const baseURL = "http://localhost:3000/";
+  const baseURL = "https://personapersonality.com/";
 
   const { ref, isComponentVisible, setIsComponentVisible } = HideShow(false);
 

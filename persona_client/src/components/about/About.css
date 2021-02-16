@@ -99,7 +99,7 @@
   min-width: 330px;
   font-size: 18px;
   font-weight: 600;
-  opacity: 50%;
+  opacity: 0.5;
   display: flex;
   flex-direction: column;
   align-content: flex-end;

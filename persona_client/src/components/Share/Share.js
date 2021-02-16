@@ -43,7 +43,7 @@ function Share({ changeColor }) {
     }
   };
   let { id } = useParams();
-  const [name, setName] = useState("e");
+  const [name, setName] = useState("NONE");
   const [personality, setPersonality] = useState(1);
   useEffect(() => {
     axios({

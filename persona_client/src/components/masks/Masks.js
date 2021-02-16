@@ -16,7 +16,7 @@ function Masks({ changeColor }) {
         <Link to={"/masks/" + (index + 1)}>
           <img className="mask_img" src={mask} alt="mask" />
         </Link>
-        <img className="mask_index" src={index_number[index]} />
+        <img className="mask_index" src={index_number[index]} alt="index" />
       </div>
     ));
   };

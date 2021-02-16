@@ -6,6 +6,7 @@
 {"name":"adavav","personality":5,"timestamp":1612275404661,"_id":"EHP4lQBg5vMGwtd0"}
 {"name":"류은진","personality":7,"timestamp":1612418480673,"_id":"Ol3HRH8cAt0RoQcQ"}
 {"name":"김동훈","personality":8,"timestamp":1612506108945,"_id":"Xvu7EiU4CjRKBPN6"}
+<<<<<<< HEAD
 {"name":"advvd","personality":5,"timestamp":1612275779369,"_id":"qOvxdZGgQP87JYGM"}
 {"name":"advadv","personality":7,"timestamp":1612275724463,"_id":"uZLGLRKtoxMie0SS"}
 {"name":"류류","personality":3,"timestamp":1612418297467,"_id":"wM1KoCnU5PeXD766"}
@@ -15,3 +16,12 @@
 {"name":"adv","personality":7,"timestamp":1613475679477,"_id":"cgd72WZPMhO1yUUk"}
 {"name":"advavd","personality":7,"timestamp":1613478792426,"_id":"ne1n7p46S5Lp4jZj"}
 {"name":"avddv","personality":7,"timestamp":1613479476578,"_id":"JvXczcqNOg9QDQw3"}
+=======
+{"name":"김동훈","personality":8,"timestamp":1613394024490,"_id":"hasxKVlW3yQikWK2"}
+{"name":"advvd","personality":5,"timestamp":1612275779369,"_id":"qOvxdZGgQP87JYGM"}
+{"name":"advadv","personality":7,"timestamp":1612275724463,"_id":"uZLGLRKtoxMie0SS"}
+{"name":"류류","personality":3,"timestamp":1612418297467,"_id":"wM1KoCnU5PeXD766"}
+{"name":"서동근","personality":8,"timestamp":1613393722273,"_id":"wu3VFpxNqWYrPhmJ"}
+{"name":"avd","personality":7,"timestamp":1613475622937,"_id":"CdUiW6gCcKjPDVt6"}
+{"name":"avdavd","personality":7,"timestamp":1613476697326,"_id":"uMuEOl3n4WcKTu1D"}
+>>>>>>> 995cbef7cd3d860ec65be20113d598fd57841e7c

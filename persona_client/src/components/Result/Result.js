@@ -18,7 +18,6 @@ import { useParams } from "react-router-dom";
 function Result({ changeColor }) {
   let { id } = useParams();
   const [personality, setPersonality] = useState(1);
-  const [shareID, setShareID] = useState("");
   //do not use usestate(0). it does not work
   const [name, setName] = useState("NONE");
   useEffect(() => {
@@ -31,7 +30,6 @@ function Result({ changeColor }) {
     } else {
       console.log("kakao is already initialized");
     }
-    setShareID(id);
     axios({
       method: "POST",
       url: "/shareData",
@@ -77,8 +75,8 @@ function Result({ changeColor }) {
         description: "#성격심리 #에니어그램 #성격가면",
         imageUrl: share_kakao_url(),
         link: {
-          mobileWebUrl: baseURL + "share/" + shareID,
-          webUrl: baseURL + "share/" + shareID,
+          mobileWebUrl: baseURL + "share/" + id,
+          webUrl: baseURL + "share/" + id,
         },
       },
       buttons: [
@@ -218,7 +216,7 @@ function Result({ changeColor }) {
                         <div className="method_container">
                           <div className="method">
                             <CopyToClipboard
-                              text={baseURL + "share/" + shareID}
+                              text={baseURL + "share/" + id}
                               onCopy={() => alert("링크가 복사되었습니다")}
                             >
                               <img src={copy_link_button} alt="copy" />

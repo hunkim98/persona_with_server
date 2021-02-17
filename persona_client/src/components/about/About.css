@@ -124,4 +124,18 @@
   .about_logo_container .signature {
     min-width: 130px;
   }
+  .about_information .title {
+    font-size: 23px;
+  }
+  .about_information .quote {
+    font-size: 15px;
+    line-height: 30px;
+  }
+  .about_information .information {
+    font-size: 15px;
+    line-height: 30px;
+  }
+  .creator_info {
+    font-size: 15px;
+  }
 }

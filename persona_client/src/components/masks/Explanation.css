@@ -144,7 +144,7 @@
     flex-direction: column;
     align-items: center;
   }
-  .explanation_divide .line {
+  .explanation_divide {
     margin-top: 60px;
     margin-bottom: 60px;
   }

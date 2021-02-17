@@ -16,14 +16,12 @@
 
 .logo_container {
   width: 100px;
-  height: 100px;
+  height: 100%;
   display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .navbar_logo {
-  max-width: 90px;
+  width: 100%;
   height: auto;
 }
 
@@ -79,8 +77,8 @@
   .navbar {
     height: 100px;
   }
-  .navbar_logo {
-    max-width: 70px;
+  .logo_container {
+    width: 70px;
   }
   .navbar_menu {
     width: 80px;

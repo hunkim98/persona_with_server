@@ -1,7 +1,11 @@
 export const show_good_bad = (type, goodBad) => {
-  return maskGoodBad[type - 1][goodBad].info.map((list) => (
-    <li key={list}>{list}</li>
-  ));
+  if (type === 0) {
+    return "정보를 불러오고 있습니다...";
+  } else {
+    return maskGoodBad[type - 1][goodBad].info.map((list) => (
+      <li key={list}>{list}</li>
+    ));
+  }
 };
 
 const mask1 = [

@@ -1,16 +1,21 @@
 export const show_mask_name = (type) => {
-  return mask_names[type - 1];
+  return mask_names[type];
 };
 
 export const show_basic_info = (type) => {
-  return mask_names[type - 1] + mask_basic_info[type - 1];
+  return mask_names[type] + mask_basic_info[type];
 };
 
 export const show_get_along = (type) => {
-  return mask_get_along[type - 1].map((list) => <li key={list}>{list}</li>);
+  if (type === 0) {
+    return "정보를 불러오고 있습니다...";
+  } else {
+    return mask_get_along[type].map((list) => <li key={list}>{list}</li>);
+  }
 };
 
 export const mask_names = [
+  " ",
   "삐꺽거리는 로봇",
   "귀여운 날다람쥐",
   "호탕한 양반댁",
@@ -23,6 +28,7 @@ export const mask_names = [
 ];
 
 export const mask_basic_info = [
+  "정보를 불러오고 있습니다...",
   " 가면을 가진 자는 기본적으로 선하고 균형 있고자 하며 행동하는 것에 있어서 그것이 가져올 결과에 대해서 많이 생각하는 편이다. 스스로가 생각하기에 옳은 것을 행하려 하며 실수를 아주 싫어하는 실질적인 행동가이기에 본인을 통제하려는 경향이 있어 비교적 조직적이고 체계적이다",
   " 가면을 가진 자는 주변 사람들이 스스로를 돕는 사람으로 받아들이기를 원하여 그렇기 때문에 타인들에게 따뜻한 관심을 보이며 친절을 베풀려고 노력한다. 사람에게 다가가는 것에 있어서 스스로가 먼저 상대방에게 사랑을 표현하여 상대방에게서 다시금 사랑을 받기를 기대하며 다른 사람을 위하는 모습을 많이 보인다",
   " 가면을 가진 자는 스스로가 가치 있는 존재라고 느껴지길 원해 자신을 개발하는 것에 관심이 많으며 사회적으로 여러가지를 성취하려고 한다. 성공하려는 의지가 강하여 생각과 실질적인 행동으로 감정을 대치하며 자신의 성공을 통해 사람들의 인정과 주목을 받는 것을 원한다",

@@ -123,10 +123,10 @@ function CheckPersonaChild({
           decided_harmonic.push("X");
         }
         if (j === 1) {
-          decided_harmonic.push("Y");
+          decided_harmonic.push("Z");
         }
         if (j === 2) {
-          decided_harmonic.push("Z");
+          decided_harmonic.push("Y");
         }
       }
     }

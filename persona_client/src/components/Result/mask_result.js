@@ -1,3 +1,5 @@
+import "./mask_result.css";
+import mask0 from "../svg/mask_result/mask0.svg";
 import mask1 from "../svg/mask_result/mask1.svg";
 import mask2 from "../svg/mask_result/mask2.svg";
 import mask3 from "../svg/mask_result/mask3.svg";
@@ -9,6 +11,7 @@ import mask8 from "../svg/mask_result/mask8.svg";
 import mask9 from "../svg/mask_result/mask9.svg";
 
 export const mask_circle = [
+  mask0,
   mask1,
   mask2,
   mask3,
@@ -21,5 +24,5 @@ export const mask_circle = [
 ];
 
 export const show_mask = (type) => {
-  return mask_circle[type - 1];
+  return mask_circle[type];
 };

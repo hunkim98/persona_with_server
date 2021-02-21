@@ -1,16 +1,7 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
 import "./lastQuestion.css";
 
-function LastQuestion({
-  types_adjectives,
-  questionNumber,
-  setQuestionNumber,
-  possibleTypes,
-  setPersonality,
-}) {
-  const history = useHistory();
-
+function LastQuestion({ types_adjectives, possibleTypes, setPersonality }) {
   const decided_personality = (type) => {
     if (type === "AX") {
       setPersonality(7);

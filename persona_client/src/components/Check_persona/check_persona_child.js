@@ -26,6 +26,7 @@ function CheckPersonaChild({
   const history = useHistory();
 
   const [possibleTypes, setPossibleTypes] = useState([]);
+  const [goToBonus, setGoToBonus] = useState(false);
 
   const personality_question = () => {
     if (questionNumber < hornevian.length) {
@@ -36,19 +37,21 @@ function CheckPersonaChild({
         setQuestionNumber((previousNumber) => previousNumber + 1);
       }
     } else {
-      //this is for harmonic
-      if (questionNumber === harmonic.length + hornevian.length) {
-        console.log("reached the end");
+      console.log(questionNumber);
+      if (questionNumber == harmonic.length + hornevian.length - 1) {
+        check_type();
+        //do nothing
       } else {
         setQuestionNumber((previousNumber) => previousNumber + 1);
       }
+      //this is for harmonic
     }
   };
 
   const show_question = () => {
     if (questionNumber < hornevian.length) {
       return hornevian[questionNumber].question;
-    } else if (questionNumber === harmonic.length + hornevian.length) {
+    } else if (goToBonus) {
       return name + "님에게 가장 어울리는 수식어 하나는?";
     } else {
       return harmonic[questionNumber - hornevian.length].question;
@@ -133,72 +136,72 @@ function CheckPersonaChild({
     return decided_harmonic;
   };
 
-  useEffect(() => {
+  const check_type = () => {
     //this is for checking when to go to the result page
-    if (questionNumber === harmonic.length + hornevian.length) {
-      if (
-        check_harmonic_type().length === 1 &&
-        check_hornevian_type().length === 1
+    if (
+      check_harmonic_type().length === 1 &&
+      check_hornevian_type().length === 1
+    ) {
+      console.log(check_hornevian_type()[0] + check_harmonic_type()[0]);
+      if (check_hornevian_type()[0] + check_harmonic_type()[0] === "AX") {
+        setPersonality(7);
+      } else if (
+        check_hornevian_type()[0] + check_harmonic_type()[0] ===
+        "AY"
       ) {
-        console.log(check_hornevian_type()[0] + check_harmonic_type()[0]);
-        if (check_hornevian_type()[0] + check_harmonic_type()[0] === "AX") {
-          setPersonality(7);
-        } else if (
-          check_hornevian_type()[0] + check_harmonic_type()[0] ===
-          "AY"
-        ) {
-          setPersonality(8);
-        } else if (
-          check_hornevian_type()[0] + check_harmonic_type()[0] ===
-          "AZ"
-        ) {
-          setPersonality(3);
-        } else if (
-          check_hornevian_type()[0] + check_harmonic_type()[0] ===
-          "BX"
-        ) {
-          setPersonality(9);
-        } else if (
-          check_hornevian_type()[0] + check_harmonic_type()[0] ===
-          "BY"
-        ) {
-          setPersonality(4);
-        } else if (
-          check_hornevian_type()[0] + check_harmonic_type()[0] ===
-          "BZ"
-        ) {
-          setPersonality(5);
-        } else if (
-          check_hornevian_type()[0] + check_harmonic_type()[0] ===
-          "CX"
-        ) {
-          setPersonality(2);
-        } else if (
-          check_hornevian_type()[0] + check_harmonic_type()[0] ===
-          "CY"
-        ) {
-          setPersonality(6);
-        } else if (
-          check_hornevian_type()[0] + check_harmonic_type()[0] ===
-          "CZ"
-        ) {
-          setPersonality(1);
-        }
-      } else {
-        for (let i = 0; i < check_hornevian_type().length; i++) {
-          for (let j = 0; j < check_harmonic_type().length; j++) {
-            setPossibleTypes((oldArray) => [
-              ...oldArray,
-              check_hornevian_type()[i] + check_harmonic_type()[j],
-            ]);
-          }
-        }
-        console.log(possibleTypes);
-        //setQuestionNumber(harmonic.length + hornevian.length + 1);
+        setPersonality(8);
+      } else if (
+        check_hornevian_type()[0] + check_harmonic_type()[0] ===
+        "AZ"
+      ) {
+        setPersonality(3);
+      } else if (
+        check_hornevian_type()[0] + check_harmonic_type()[0] ===
+        "BX"
+      ) {
+        setPersonality(9);
+      } else if (
+        check_hornevian_type()[0] + check_harmonic_type()[0] ===
+        "BY"
+      ) {
+        setPersonality(4);
+      } else if (
+        check_hornevian_type()[0] + check_harmonic_type()[0] ===
+        "BZ"
+      ) {
+        setPersonality(5);
+      } else if (
+        check_hornevian_type()[0] + check_harmonic_type()[0] ===
+        "CX"
+      ) {
+        setPersonality(2);
+      } else if (
+        check_hornevian_type()[0] + check_harmonic_type()[0] ===
+        "CY"
+      ) {
+        setPersonality(6);
+      } else if (
+        check_hornevian_type()[0] + check_harmonic_type()[0] ===
+        "CZ"
+      ) {
+        setPersonality(1);
       }
+    } else {
+      for (let i = 0; i < check_hornevian_type().length; i++) {
+        for (let j = 0; j < check_harmonic_type().length; j++) {
+          setPossibleTypes((oldArray) => [
+            ...oldArray,
+            check_hornevian_type()[i] + check_harmonic_type()[j],
+          ]);
+        }
+      }
+      setGoToBonus(true);
+      console.log(possibleTypes);
+      //setQuestionNumber(harmonic.length + hornevian.length + 1);
     }
+
     // eslint-disable-next-line
-  }, [questionNumber]);
+  };
 
   useEffect(() => {
     if (personality !== 0) {
@@ -227,7 +230,13 @@ function CheckPersonaChild({
   }, []);
 
   const previousQuestion = () => {
-    setQuestionNumber((previousNumber) => previousNumber - 1);
+    if (goToBonus) {
+      setGoToBonus(false);
+      setQuestionNumber(harmonic.length + hornevian.length - 1);
+      setPossibleTypes([]);
+    } else {
+      setQuestionNumber((previousNumber) => previousNumber - 1);
+    }
   };
   return (
     <>
@@ -288,9 +297,10 @@ function CheckPersonaChild({
                 questionNumber={questionNumber}
                 hornevian={hornevian.length}
                 harmonic={harmonic.length}
+                goToBonus={goToBonus}
               />
               <div className="persona_question">{show_question()}</div>
-              {questionNumber !== hornevian.length + harmonic.length ? (
+              {!goToBonus ? (
                 <div className="hornevian_answer_container">
                   <div
                     onClick={() => {
@@ -323,8 +333,6 @@ function CheckPersonaChild({
               ) : (
                 <LastQuestion
                   types_adjectives={types_adjectives}
-                  questionNumber={questionNumber}
-                  setQuestionNumber={setQuestionNumber}
                   possibleTypes={possibleTypes}
                   setPersonality={setPersonality}
                 />

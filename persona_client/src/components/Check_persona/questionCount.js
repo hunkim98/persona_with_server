@@ -2,10 +2,10 @@ import React from "react";
 import { numbers, plusOne } from "./numbers";
 import "./questionCount.css";
 
-function questionCount({ questionNumber, harmonic, hornevian }) {
+function questionCount({ questionNumber, harmonic, hornevian, goToBonus }) {
   return (
     <>
-      {questionNumber !== harmonic + hornevian ? (
+      {!goToBonus ? (
         <svg
           className="question_number_container"
           xmlns="http://www.w3.org/2000/svg"

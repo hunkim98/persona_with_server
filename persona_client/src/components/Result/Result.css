@@ -51,6 +51,7 @@
 
 .result_pattern {
   width: 100%;
+  height: auto;
 }
 
 .mask_circle {

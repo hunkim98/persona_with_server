@@ -16,13 +16,17 @@ function UserData() {
     return date;
   };
   const expandData = () => {
-    return userData.map((item) => (
-      <div className="userData" key={item.timestamp}>
-        <div className="name">{item.name}</div>
-        <div className="personality">{item.personality}</div>
-        <div className="date">{changeToDate(item.timestamp)}</div>
-      </div>
-    ));
+    if (userData.length !== 0) {
+      return userData.map((item) => (
+        <div className="userData" key={item.timestamp}>
+          <div className="name">{item.name}</div>
+          <div className="personality">{item.personality}</div>
+          <div className="date">{changeToDate(item.timestamp)}</div>
+        </div>
+      ));
+    } else {
+      return "Wait a minute..";
+    }
   };
 
   return <div>{expandData()}</div>;

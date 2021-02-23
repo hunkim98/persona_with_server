@@ -16,13 +16,12 @@
 
 .logo_container {
   width: 100px;
-  height: 100%;
   display: flex;
 }
 
 .navbar_logo {
   width: 100%;
-  height: auto;
+  height: 100%;
 }
 
 .navbar_menu_container {

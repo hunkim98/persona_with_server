@@ -2,7 +2,6 @@ const { response } = require("express");
 const express = require("express");
 const app = express();
 const port = process.env.PORT || 5000;
-const fs = require("fs");
 const Datastore = require("nedb");
 
 const database = new Datastore("database.db");

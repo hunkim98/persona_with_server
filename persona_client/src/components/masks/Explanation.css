@@ -74,7 +74,7 @@
 .explanation_divide svg {
   margin: 0 30px 0 30px;
   width: 50px;
-  height: auto;
+  height: 100%;
 }
 
 .explanation_divide .line {

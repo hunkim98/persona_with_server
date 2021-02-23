@@ -5,7 +5,7 @@ import "./UserData.css";
 function UserData() {
   const [userData, setUserData] = useState([]);
   useEffect(() => {
-    axios.get("./gatherData").then((res) => {
+    axios.get("/gatherData").then((res) => {
       console.log(res.data);
       setUserData(res.data);
     });

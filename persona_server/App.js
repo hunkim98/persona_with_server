@@ -10,15 +10,9 @@ app.use(express.json({ limit: "1mb" }));
 
 var request = require("request");
 
-app.get("/", (req, res) => {
-  database.find({}, (err, docs) => {
-    res.send(docs);
-  });
-});
-
 app.get("/gatherData", (req, res) => {
   database.find({}, (err, docs) => {
-    res.json(docs);
+    res.send(docs);
   });
 });
 

@@ -10,6 +10,10 @@ function UserData() {
       setUserData(res.data);
     });
   }, []);
+  useEffect(() => {
+    console.log(userData[1]);
+    console.log(Array.isArray(userData));
+  }, [userData]);
 
   const changeToDate = (item) => {
     const date = new Date(item).toLocaleString();

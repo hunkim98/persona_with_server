@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./About.css";
 import desktop_left from "./desktop_left.svg";
 import desktop_right from "./desktop_right.svg";
@@ -9,7 +9,10 @@ import { useMediaQuery } from "react-responsive";
 import { Spring } from "react-spring/renderprops";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 
-function About() {
+function About({ changeColor }) {
+  useEffect(() => {
+    changeColor("#ffffff");
+  }, []);
   const isDesktopOrMobile = useMediaQuery({
     query: "(max-width:800px)",
   });

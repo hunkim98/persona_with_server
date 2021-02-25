@@ -28,7 +28,7 @@
 }
 .persona_check_container {
   min-width: 340px;
-  height: 60vh;
+  height: 70vh;
   min-height: 650px;
   position: relative;
   z-index: 5;
@@ -46,7 +46,7 @@
   width: 100%;
   max-width: 500px;
   font-size: 19px;
-  font-weight: 500;
+  font-weight: 600;
   margin-top: 40px;
   line-height: 40px;
   text-align: center;
@@ -56,9 +56,7 @@
 .hornevian_answer_container {
   margin-top: 40px;
   font-family: "Noto Sans CJK KR", sans-serif;
-  font-size: 15px;
   height: 240px;
-  font-weight: 400;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -71,10 +69,13 @@
 .hornevian_select {
   padding: 10px 10px 10px 10px;
   height: 40px;
+  font-weight: 550;
+  font-size: 14px;
   display: flex;
   justify-content: center;
   align-items: center;
   border: 2px solid #000000;
+  word-break: keep-all;
   width: 100%;
   transition: all 0.3s ease;
 }
@@ -149,11 +150,23 @@
     width: 110px;
     height: auto;
   }
+  .persona_question {
+    font-size: 17px;
+    line-height: 35px;
+  }
+  .hornevian_select {
+    font-size: 14px;
+  }
 }
-
 @media (hover: hover) and (pointer: fine) {
   .hornevian_select:hover {
-    width: 105%;
-    font-size: 16px;
+    background: #000000;
+    color: #fff;
+  }
+}
+@media (hover: none) and (pointer: coarse) {
+  .hornevian_select:active {
+    background: #000000;
+    color: #fff;
   }
 }

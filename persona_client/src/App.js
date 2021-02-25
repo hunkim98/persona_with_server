@@ -53,7 +53,10 @@ function App() {
           )}
         />
         <Route path="/home" render={(props) => <Home />} />
-        <Route path="/about" render={(props) => <About />} />
+        <Route
+          path="/about"
+          render={(props) => <About {...props} changeColor={changeColor} />}
+        />
         <Route
           path="/masks"
           exact

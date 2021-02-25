@@ -45,6 +45,7 @@ function questionCount({ questionNumber, harmonic, hornevian, goToBonus }) {
         </svg>
       ) : (
         <svg
+          className="question_number_container"
           xmlns="http://www.w3.org/2000/svg"
           width="135"
           height="70"

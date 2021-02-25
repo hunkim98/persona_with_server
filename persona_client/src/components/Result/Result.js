@@ -108,7 +108,11 @@ function Result({ changeColor }) {
                 <div className="result_pattern_control1">
                   <div className="mask_result_container">
                     <img
-                      className="mask_circle"
+                      className={
+                        personality === 0
+                          ? "mask_circle rotating_mask"
+                          : "mask_circle"
+                      }
                       src={show_mask(personality)}
                       alt=""
                     />

@@ -4,6 +4,7 @@ import "./UserData.css";
 
 function UserData() {
   const [userData, setUserData] = useState([]);
+  const [arrangedData, setArrangedData] = useState([]);
   useEffect(() => {
     axios.get("/gatherData").then((res) => {
       console.log(res.data);
@@ -11,8 +12,12 @@ function UserData() {
     });
   }, []);
   useEffect(() => {
-    console.log(userData[1]);
-    console.log(Array.isArray(userData));
+    setArrangedData(
+      userData.sort((a, b) => {
+        return a.timestamp - b.timestamp; //align according to timestamp
+      })
+    );
+    console.log(userData);
   }, [userData]);
 
   const changeToDate = (item) => {
@@ -20,8 +25,8 @@ function UserData() {
     return date;
   };
   const expandData = () => {
-    if (userData.length !== 0) {
-      return userData.map((item) => (
+    if (arrangedData.length !== 0) {
+      return arrangedData.map((item) => (
         <div className="userData" key={item.timestamp}>
           <div className="name">{item.name}</div>
           <div className="personality">{item.personality}</div>

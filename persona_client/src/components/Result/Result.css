@@ -195,7 +195,7 @@
   flex-direction: column;
   align-items: center;
   font-family: "Noto Sans CJK KR", sans-serif;
-  font-weight: 550;
+  font-weight: 600;
   word-break: keep-all;
 }
 
@@ -211,6 +211,7 @@
   display: flex;
   justify-content: space-between;
   font-size: 20px;
+  line-height: 30px;
 }
 
 .good_and_bad .small_title {
@@ -284,6 +285,7 @@
 }
 .how_to_get_along li {
   margin-bottom: 30px;
+  line-height: 30px;
 }
 
 /* end of how to get along */
@@ -310,6 +312,7 @@
   opacity: 0.7;
   font-weight: 600;
   font-size: 18px;
+  margin-bottom: 10px;
 }
 
 .best_with_masks {
@@ -336,7 +339,7 @@
 }
 .partner_mask_image {
   width: 100%;
-  margin: -15px;
+  margin: -12px;
 }
 
 /* end of best partner */
@@ -456,7 +459,7 @@
 @media only screen and (max-width: 800px) {
   .result_basic_information {
     font-size: 18px;
-    line-height: 35px;
+    line-height: 40px;
   }
   .result_mask_information {
     font-size: 26px;

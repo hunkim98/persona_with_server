@@ -42,7 +42,9 @@ function UserData() {
   const resetAllData = () => {
     let password = prompt("Please enter your password", "");
     if (password === password_data) {
-      axios.get("/removeData").then((res) => {});
+      axios.get("/removeData").then((res) => {
+        console.log(res);
+      });
     } else {
       alert("wrong password!");
     }

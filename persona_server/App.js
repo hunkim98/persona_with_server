@@ -1,6 +1,5 @@
 const { response } = require("express");
 const express = require("express");
-var cors = require("cors");
 var request = require("request");
 const app = express();
 const port = process.env.PORT || 5000;
@@ -18,21 +17,9 @@ app.get("/gatherData", (req, res) => {
 });
 
 app.get("/removeData", (req, res) => {
-  database.remove({}, { multi: true }, function (err, numRemoved) {});
-  res.send("removed data");
-});
-
-app.get("/getTokyo", (req, res) => {
-  request(
-    "http://api.weatherstack.com/current?access_key=e25a53c86085389ed25e5f88efa6db86&query=Tokyo",
-    function (error, response, body) {
-      if (!error & (response.statusCode == 200)) {
-        var parsedBody = JSON.parse(body);
-        var temperature = parsedBody["current"]["temperature"];
-        res.send({ temperature });
-      }
-    }
-  );
+  database.remove({}, { multi: true }, function (err, numRemoved) {
+    res.send("erased all data");
+  });
 });
 
 app.post("/sendData", (req, res) => {

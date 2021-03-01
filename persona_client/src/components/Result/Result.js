@@ -64,7 +64,6 @@ function Result({ changeColor }) {
   const share_kakao_url = () => {
     let url = "https://hunkim98.github.io/persona/imgUrl/";
     url = url + personality + ".png";
-    console.log(url);
     return url;
   };
 
@@ -73,7 +72,7 @@ function Result({ changeColor }) {
     window.Kakao.Link.sendDefault({
       objectType: "feed",
       content: {
-        title: "상대방이 나에게서 이런 성격의 가면이 있다고 보고 있어요!",
+        title: "상대방이 나에게 이런 성격의 가면이 있다고 보고 있어요!",
         description: "#성격심리 #에니어그램 #성격가면",
         imageUrl: share_kakao_url(),
         link: {

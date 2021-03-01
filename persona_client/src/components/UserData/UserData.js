@@ -52,7 +52,6 @@ function UserData() {
 
   return (
     <>
-      {/* <button onClick={resetAllData}>Reset Data</button> */}
       <div className="total_users">
         <div className="title">Total Users: </div>
         <div className="amount">{userData.length}</div>

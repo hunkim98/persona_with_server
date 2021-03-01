@@ -16,11 +16,11 @@ app.get("/gatherData", (req, res) => {
   });
 });
 
-app.get("/removeData", (req, res) => {
-  database.remove({}, { multi: true }, function (err, numRemoved) {
-    res.send("erased all data");
-  });
-});
+// app.get("/removeData", (req, res) => {
+//   database.remove({}, { multi: true }, function (err, numRemoved) {
+//     res.send("erased all data");
+//   });
+// });
 
 app.post("/sendData", (req, res) => {
   console.log("user sent data");

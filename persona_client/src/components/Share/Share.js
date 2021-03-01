@@ -286,11 +286,15 @@ function Share({ changeColor }) {
                 <div className="title">[짝으로서 좋은 가면]</div>
                 <div className="best_with_masks_container">
                   <div className="best_with_masks man">
-                    <div className="gender_title">남자의 경우</div>
+                    <div className="gender_title">
+                      {show_mask_name(personality)} 가면의 남성에게는
+                    </div>
                     {best_with_gender(personality, 0)}
                   </div>
                   <div className="best_with_masks woman">
-                    <div className="gender_title">여자의 경우</div>
+                    <div className="gender_title">
+                      {show_mask_name(personality)} 가면의 여성에게는
+                    </div>
                     {best_with_gender(personality, 1)}
                   </div>
                 </div>

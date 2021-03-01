@@ -126,7 +126,7 @@
   flex-direction: row;
   font-family: "Noto Sans CJK KR", sans-serif;
   font-size: 32px;
-  font-weight: 550;
+  font-weight: 600;
   justify-content: center;
   margin-top: 100px;
 }
@@ -144,12 +144,12 @@
 }
 
 .result_basic_information {
-  font-size: 22px;
+  font-size: 20px;
   width: 100%;
   font-family: "Noto Sans CJK KR", sans-serif;
-  font-weight: 500;
+  font-weight: 550;
   opacity: 0.6;
-  line-height: 48px;
+  line-height: 45px;
   text-align: center;
   word-break: keep-all;
   padding: 0 15px 0 15px;
@@ -210,8 +210,7 @@
 .good_and_bad .info {
   display: flex;
   justify-content: space-between;
-  font-size: 20px;
-  line-height: 30px;
+  font-size: 17px;
 }
 
 .good_and_bad .small_title {
@@ -223,7 +222,7 @@
   padding: 0;
   margin: 0;
   padding-inline-start: 15px;
-  font-weight: 500;
+  font-weight: 550;
   opacity: 0.6;
   list-style-type: none;
 }
@@ -231,6 +230,7 @@
 .good_and_bad ul li {
   margin-bottom: 35px;
   position: relative;
+  line-height: 35px;
 }
 
 .good_and_bad ul li::before {
@@ -277,15 +277,14 @@
 .how_to_get_along ol {
   padding: 0;
   margin: 0;
-  font-size: 23px;
-  line-height: 40px;
+  font-size: 20px;
   word-break: keep-all;
   padding-inline-start: 55px;
   opacity: 0.8;
 }
 .how_to_get_along li {
-  margin-bottom: 30px;
-  line-height: 30px;
+  margin-bottom: 40px;
+  line-height: 45px;
 }
 
 /* end of how to get along */
@@ -458,8 +457,9 @@
 
 @media only screen and (max-width: 800px) {
   .result_basic_information {
-    font-size: 18px;
-    line-height: 40px;
+    font-size: 16px;
+    line-height: 35px;
+    text-align: left;
   }
   .result_mask_information {
     font-size: 26px;
@@ -480,6 +480,10 @@
   .good_and_bad .small_title {
     font-size: 17px;
   }
+  .good_and_bad ul li {
+    margin-bottom: 25px;
+    line-height: 30px;
+  }
   .good_info {
     width: 100%;
     margin-bottom: 60px;
@@ -496,7 +500,10 @@
   .how_to_get_along ol {
     font-size: 15px;
     padding-inline-start: 30px;
-    line-height: 25px;
+  }
+  .how_to_get_along li {
+    margin-bottom: 40px;
+    line-height: 30px;
   }
 
   .best_with .title {

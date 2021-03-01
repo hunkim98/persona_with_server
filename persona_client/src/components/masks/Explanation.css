@@ -104,7 +104,7 @@
   padding: 0;
   padding-inline-start: 15px;
   list-style-type: none;
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 600;
   word-break: keep-all;
   opacity: 0.6;
@@ -112,7 +112,7 @@
 
 .explanation_good_bad li {
   margin-bottom: 25px;
-  line-height: 30px;
+  line-height: 35px;
 }
 .explanation_good_bad li::before {
   content: "-\a0";
@@ -135,9 +135,9 @@
   }
   .mask_explanation_info .definition {
     margin: 0;
-    text-align: center;
-    font-size: 18px;
-    line-height: 40px;
+    text-align: left;
+    font-size: 16px;
+    line-height: 35px;
   }
   .mask_explanation_info .name {
     display: flex;

@@ -341,6 +341,11 @@
   width: 100%;
   margin: -12px;
 }
+.pattern_mask_name {
+  font-family: "Noto Sans CJK KR", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+}
 
 /* end of best partner */
 

@@ -16,7 +16,6 @@ function Basic({
   questionNumber,
 }) {
   useEffect(() => {
-    console.log("initialized");
     changeColor("#ffffff");
     setStartBool([false, false]);
     setName("");

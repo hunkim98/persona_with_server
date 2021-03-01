@@ -124,8 +124,10 @@ export const best_with_gender = (personality, number) => {
     } else if (personality === 9) {
       return (
         <div className="partner_mask_container">
-          <img className="partner_mask_image" src={mask_raw[1]} />
-          <img className="partner_mask_image" src={mask_raw[3]} />
+          <img className="partner_mask_image" src={mask_raw[2]} />
+          <img className="partner_mask_image" src={mask_raw[5]} />
+          <img className="partner_mask_image" src={mask_raw[6]} />
+          <img className="partner_mask_image" src={mask_raw[8]} />
         </div>
       );
     }

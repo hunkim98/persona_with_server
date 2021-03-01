@@ -18,8 +18,8 @@ function Share({ changeColor }) {
     query: "(max-width:1280px)",
   });
   let { id } = useParams();
-  const [name, setName] = useState("NONE");
-  const [personality, setPersonality] = useState(1);
+  const [name, setName] = useState("");
+  const [personality, setPersonality] = useState(0);
   useEffect(() => {
     axios({
       method: "POST",
@@ -31,7 +31,6 @@ function Share({ changeColor }) {
       .then((res) => {
         if (res.data.status !== "false") {
           console.log(res.data);
-          console.log(res.data.name);
           setName(res.data.name);
           setPersonality(res.data.personality);
         } else {
@@ -59,7 +58,11 @@ function Share({ changeColor }) {
                 <div className="result_pattern_control1">
                   <div className="mask_result_container">
                     <img
-                      className="mask_circle"
+                      className={
+                        personality === 0
+                          ? "mask_circle rotating_mask"
+                          : "mask_circle"
+                      }
                       src={show_mask(personality)}
                       alt=""
                     />

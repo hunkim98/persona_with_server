@@ -20,10 +20,13 @@ function App() {
   const location = useLocation();
 
   useEffect(() => {
-    ReactGA.initialize("UA-190746001-1");
-    const path = location.pathname + location.search;
-    ReactGA.set({ page: path });
-    ReactGA.pageview(path);
+    let host = window.location.hostname;
+    if (host != "localhost") {
+      ReactGA.initialize("UA-190746001-1");
+      const path = location.pathname + location.search;
+      ReactGA.set({ page: path });
+      ReactGA.pageview(path);
+    }
     //to report page view
   }, []);
 

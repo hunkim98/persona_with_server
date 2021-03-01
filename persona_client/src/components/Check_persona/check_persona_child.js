@@ -83,7 +83,6 @@ function CheckPersonaChild({
         choice: harmonic[questionNumber - hornevian.length].options[answer].id,
       };
     }
-    console.log(total_result);
   };
 
   const check_hornevian_type = () => {
@@ -148,7 +147,6 @@ function CheckPersonaChild({
       check_harmonic_type().length === 1 &&
       check_hornevian_type().length === 1
     ) {
-      console.log(check_hornevian_type()[0] + check_harmonic_type()[0]);
       if (check_hornevian_type()[0] + check_harmonic_type()[0] === "AX") {
         setPersonality(7);
       } else if (
@@ -202,7 +200,6 @@ function CheckPersonaChild({
         }
       }
       setGoToBonus(true);
-      console.log(possibleTypes);
       //setQuestionNumber(harmonic.length + hornevian.length + 1);
     }
 
@@ -222,7 +219,6 @@ function CheckPersonaChild({
         },
       })
         .then((res) => {
-          console.log(res.data.id);
           history.push("/result/" + res.data.id);
         })
         .catch((error) => {

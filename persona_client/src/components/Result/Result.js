@@ -21,11 +21,13 @@ function Result({ changeColor }) {
   const [personality, setPersonality] = useState(0);
   //do not use usestate(0). it does not work
   const [name, setName] = useState("");
+
+  const baseURL = "https://personapersonality.com/";
+
   useEffect(() => {
     changeColor("#76729F");
     window.scrollTo(0, 0);
     if (!window.Kakao.isInitialized()) {
-      console.log("initialized kakao");
       //initialize kakaotalk only once
       window.Kakao.init("dfb19a99996885d213dd7631a295b474");
     } else {
@@ -41,7 +43,6 @@ function Result({ changeColor }) {
       .then((res) => {
         if (res.data.status !== "false") {
           console.log(res.data);
-          console.log(res.data.name);
           setName(res.data.name);
           setPersonality(res.data.personality);
         } else {
@@ -51,9 +52,10 @@ function Result({ changeColor }) {
       .catch((error) => {
         console.log(error);
       });
+    document
+      .querySelector('meta[property="og:url"]')
+      .setAttribute("content", baseURL + "share/" + id);
   }, []);
-
-  const baseURL = "https://personapersonality.com/";
 
   const { ref, isComponentVisible, setIsComponentVisible } = HideShow(false);
 
@@ -367,7 +369,6 @@ function Result({ changeColor }) {
                           src={open_method}
                           alt="background"
                           className="method_background"
-                          onClick={() => console.log("clicked")}
                         />
                         <div className="method_container">
                           <div className="method">

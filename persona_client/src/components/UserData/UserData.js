@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import "./UserData.css";
+import { password_data } from "../../password";
 
 function UserData() {
   const [userData, setUserData] = useState([]);
@@ -38,7 +39,25 @@ function UserData() {
     }
   };
 
-  return <div>{expandData()}</div>;
+  const resetAllData = () => {
+    let password = prompt("Please enter your password", "");
+    if (password === password_data) {
+      axios.get("/removeData").then((res) => {});
+    } else {
+      alert("wrong password!");
+    }
+  };
+
+  return (
+    <>
+      <button onClick={resetAllData}>Reset Data</button>
+      <div className="total_users">
+        <div className="title">Total Users: </div>
+        <div className="amount">{userData.length}</div>
+      </div>
+      <div>{expandData()}</div>
+    </>
+  );
 }
 
 export default UserData;

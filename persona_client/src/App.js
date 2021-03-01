@@ -1,8 +1,7 @@
-import React, { useState } from "react";
-import { Switch, Route } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Switch, Route, useLocation } from "react-router-dom";
 import Navbar from "./components/navbar/Navbar";
 import Basic from "./components/Start/Basic";
-import CheckPersona from "./components/Check_persona/check_persona";
 import Result from "./components/Result/Result";
 import UserData from "./components/UserData/UserData";
 import Share from "./components/Share/Share";
@@ -10,12 +9,23 @@ import Home from "./components/Start/Home";
 import About from "./components/about/About";
 import Masks from "./components/masks/Masks";
 import Explanation from "./components/masks/Explanation";
+import ReactGA from "react-ga";
+import RouteChangeTracker from "./RouteChangeTracker";
 
 function App() {
   const [startBool, setStartBool] = useState([false, false]);
   const [name, setName] = useState("");
   const [questionNumber, setQuestionNumber] = useState(0);
   const [color, changeColor] = useState("#ffffff");
+  const location = useLocation();
+
+  useEffect(() => {
+    ReactGA.initialize("UA-190746001-1");
+    const path = location.pathname + location.search;
+    ReactGA.set({ page: path });
+    ReactGA.pageview(path);
+    //to report page view
+  }, []);
 
   return (
     <div
@@ -29,6 +39,7 @@ function App() {
       }}
       id="main"
     >
+      <RouteChangeTracker />
       <Navbar
         setStartBool={setStartBool}
         setName={setName}

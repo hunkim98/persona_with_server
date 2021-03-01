@@ -132,6 +132,7 @@
     margin: 0;
     text-align: center;
     font-size: 18px;
+    line-height: 35px;
   }
   .mask_explanation_info .name {
     display: flex;
@@ -154,8 +155,16 @@
   }
   .explanation_good_bad .group {
     margin-bottom: 50px;
-  }
-  .explanation_good_bad .group {
     width: 100%;
+  }
+
+  .explanation_good_bad .small_title {
+    font-size: 17px;
+  }
+  .explanation_good_bad ul {
+    font-size: 15px;
+  }
+  .explanation_good_bad li {
+    line-height: 25px;
   }
 }

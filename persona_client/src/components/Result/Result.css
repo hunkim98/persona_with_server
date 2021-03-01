@@ -286,6 +286,61 @@
   margin-bottom: 30px;
 }
 
+/* end of how to get along */
+.best_with {
+  font-family: "Noto Sans CJK KR", sans-serif;
+  width: 100%;
+  max-width: 400px;
+  margin-top: 100px;
+  margin-bottom: 30px;
+}
+
+.best_with .title {
+  font-size: 25px;
+  font-weight: 600;
+  text-align: center;
+  opacity: 0.8;
+}
+
+.best_with_masks_container {
+  display: flex;
+}
+
+.gender_title {
+  opacity: 0.7;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.best_with_masks {
+  margin-top: 30px;
+  width: 50%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.best_with_masks.man {
+  border-right: 1px solid #635f87;
+}
+
+.best_with_masks.woman {
+  border-left: 1px solid #635f87;
+}
+.partner_mask_container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.partner_mask_image {
+  width: 100%;
+  margin: -15px;
+}
+
+/* end of best partner */
+
 .result_button_container {
   margin-top: 100px;
   font-family: "Noto Sans CJK KR", sans-serif;
@@ -400,8 +455,8 @@
 
 @media only screen and (max-width: 800px) {
   .result_basic_information {
-    font-size: 20px;
-    line-height: 40px;
+    font-size: 18px;
+    line-height: 35px;
   }
   .result_mask_information {
     font-size: 26px;
@@ -414,13 +469,13 @@
     display: flex;
     flex-direction: column;
     align-content: center;
-    font-size: 18px;
+    font-size: 15px;
   }
   .good_and_bad .title {
-    font-size: 26px;
+    font-size: 18px;
   }
   .good_and_bad .small_title {
-    font-size: 23px;
+    font-size: 17px;
   }
   .good_info {
     width: 100%;
@@ -433,11 +488,15 @@
     max-width: 360px;
   }
   .how_to_get_along .title {
-    font-size: 22px;
+    font-size: 18px;
   }
   .how_to_get_along ol {
-    font-size: 18px;
+    font-size: 15px;
     padding-inline-start: 30px;
-    line-height: 30px;
+    line-height: 25px;
+  }
+
+  .best_with .title {
+    font-size: 20px;
   }
 }

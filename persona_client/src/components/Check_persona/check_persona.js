@@ -25,7 +25,7 @@ function CheckPersona({
         },
         {
           selection: "본인 반의 입장을 대변하는 역할을 충실히 수행한다",
-          id: "C",
+          id: "CPL",
         },
         {
           selection: "별말없이 얘기를 들으며 나오는 의견들에 대해서 생각해본다",
@@ -49,7 +49,7 @@ function CheckPersona({
         {
           selection:
             "내 역할은 그룹을 위해서 반대하는 걸까 아니면 따르는 걸까?",
-          id: "C",
+          id: "CPL",
         },
         { selection: "다들 동의하는 것으로 보아 일단은 따르자", id: "W" },
       ],
@@ -71,7 +71,7 @@ function CheckPersona({
         {
           selection:
             "돌아다니다가도 마음 맞는 주변 사람들과 한자리에서 오랫동안 얘기를 나눈다",
-          id: "C",
+          id: "CPL",
         },
         {
           selection:
@@ -89,7 +89,7 @@ function CheckPersona({
         "님이 맡기에 가장 적합한 업무는?",
       options: [
         { selection: "두목 or 행동대장", id: "A" },
-        { selection: "보스에게 충성하는 오른팔", id: "C" },
+        { selection: "보스에게 충성하는 오른팔", id: "CPL" },
         { selection: "정보원 or 감시자", id: "W" },
       ],
       key: 4,
@@ -104,7 +104,7 @@ function CheckPersona({
         { selection: "기업에 자기의 목소리를 전달하려고", id: "A" },
         {
           selection: "참여를 꼭 해야겠다는 생각이 들어서",
-          id: "C",
+          id: "CPL",
         },
         { selection: "주변에서 욕 먹기 싫어서", id: "W" },
       ],
@@ -119,7 +119,7 @@ function CheckPersona({
         { selection: "레크레이션 활동 중 자신의 의견이 무시되는 것", id: "A" },
         {
           selection: "숙소 뒷정리 시간에 자기만 청소하고 남들은 정리 안하는 것",
-          id: "C",
+          id: "CPL",
         },
         { selection: "본인에게 갑자기 장기자랑을 시키는 것", id: "W" },
       ],
@@ -140,7 +140,7 @@ function CheckPersona({
         {
           selection:
             "본인을 회사의 가족 구성원처럼 챙겨주며 각자의 역할 구분이 확실한 회사",
-          id: "C",
+          id: "CPL",
         },
         {
           selection:
@@ -158,7 +158,7 @@ function CheckPersona({
         "님이 애인과 가장 자주 다툴 법한 시나리오는?",
       options: [
         { selection: "애인이 본인의 말을 안 들으려 한다고 생각한다", id: "A" },
-        { selection: "애인이 자기의 기대만큼 안해준다고 생각하다", id: "C" },
+        { selection: "애인이 자기의 기대만큼 안해준다고 생각하다", id: "CPL" },
         { selection: "애인이 본인에게 과도하게 간섭한다고 생각한다", id: "W" },
       ],
       key: 8,
@@ -169,7 +169,7 @@ function CheckPersona({
         { selection: "억울한 상황을 참고 넘기는 것", id: "A" },
         {
           selection: "본인에게 맡겨진 일을 대충하는 것",
-          id: "C",
+          id: "CPL",
         },
         { selection: "낯선 자리에서 사람들의 시선 집중을 받는 것", id: "W" },
       ],
@@ -192,14 +192,14 @@ function CheckPersona({
         },
         {
           selection: '"이게 어떻게 하면 풀 수 있는거지?"',
-          id: "C",
+          id: "CPT",
         },
         {
           selection: '"이 문제 너무한거 아니야?"',
-          id: "B",
+          id: "R",
         },
       ],
-      key: 1,
+      key: -1,
     },
     {
       question:
@@ -218,15 +218,15 @@ function CheckPersona({
         {
           selection:
             "서로가 현재 상황에 느끼는 당혹스러운 감정을 공유하고 이 감정을 서로 토로하는 것",
-          id: "C",
+          id: "CPT",
         },
         {
           selection:
             "긍정적인 관점을 유지하며 문제를 해결할 수 있다고 격려하는 것",
-          id: "B",
+          id: "R",
         },
       ],
-      key: 2,
+      key: -2,
     },
     {
       question:
@@ -243,15 +243,15 @@ function CheckPersona({
         {
           selection:
             "상대방의 반응에 대해서 곰곰히 생각하고 파고들며 원인을 찾는다",
-          id: "C",
+          id: "CPT",
         },
         {
           selection:
             "상대방에게 실망스러운 감정을 발산하고 표현을 통해 감정을 전달한다",
-          id: "B",
+          id: "R",
         },
       ],
-      key: 3,
+      key: -3,
     },
     {
       question:
@@ -267,15 +267,15 @@ function CheckPersona({
         {
           selection:
             "자신이 어디에서 왜 실수하게 되었는지 알아보고 나서 점심을 먹으러 간다",
-          id: "C",
+          id: "CPT",
         },
         {
           selection:
             "평상시에 같이 밥 먹는 직장동료에게 본인의 감정을 토로한다",
-          id: "B",
+          id: "R",
         },
       ],
-      key: 4,
+      key: -4,
     },
     {
       question:
@@ -292,15 +292,15 @@ function CheckPersona({
         {
           selection:
             "문제의 해결책을 찾으려 하고 다음 행동을 이성적으로 계획한다",
-          id: "C",
+          id: "CPT",
         },
         {
           selection:
             "해당 난관에 대해 당황스러움을 표현하고 남들도 같은 감정을 느끼는지 확인한다",
-          id: "B",
+          id: "R",
         },
       ],
-      key: 5,
+      key: -5,
     },
   ];
 
@@ -325,7 +325,6 @@ function CheckPersona({
       hornevian[j] = temp;
     }
     changeColor("#c0baff");
-    console.log(hornevian);
   }, []);
 
   const [newHornevian, mixHornevian] = useState(hornevian);

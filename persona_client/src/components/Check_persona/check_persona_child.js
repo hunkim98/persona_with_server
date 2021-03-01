@@ -10,6 +10,7 @@ import axios from "axios";
 
 let hornevian_result = [];
 let harmonic_result = [];
+let total_result = []; //this is for data gathering
 
 function CheckPersonaChild({
   name,
@@ -37,8 +38,7 @@ function CheckPersonaChild({
         setQuestionNumber((previousNumber) => previousNumber + 1);
       }
     } else {
-      console.log(questionNumber);
-      if (questionNumber == harmonic.length + hornevian.length - 1) {
+      if (questionNumber === harmonic.length + hornevian.length - 1) {
         check_type();
         //do nothing
       } else {
@@ -71,13 +71,19 @@ function CheckPersonaChild({
     if (questionNumber < hornevian.length) {
       hornevian_result[questionNumber] =
         hornevian[questionNumber].options[answer].id;
-      console.log(hornevian_result);
-      console.log(questionNumber);
+      total_result[questionNumber] = {
+        key: hornevian[questionNumber].key,
+        choice: hornevian[questionNumber].options[answer].id,
+      };
     } else {
       harmonic_result[questionNumber - hornevian.length] =
         harmonic[questionNumber - hornevian.length].options[answer].id;
-      console.log(harmonic_result);
+      total_result[questionNumber] = {
+        key: harmonic[questionNumber - hornevian.length].key,
+        choice: harmonic[questionNumber - hornevian.length].options[answer].id,
+      };
     }
+    console.log(total_result);
   };
 
   const check_hornevian_type = () => {
@@ -88,7 +94,7 @@ function CheckPersonaChild({
         hornevian_type[0]++;
       } else if (hornevian_result[i] === "W") {
         hornevian_type[1]++;
-      } else if (hornevian_result[i] === "C") {
+      } else if (hornevian_result[i] === "CPL") {
         hornevian_type[2]++;
       }
     }
@@ -114,9 +120,9 @@ function CheckPersonaChild({
     for (let i = 0; i < harmonic_result.length; i++) {
       if (harmonic_result[i] === "P") {
         harmonic_type[0]++;
-      } else if (harmonic_result[i] === "C") {
+      } else if (harmonic_result[i] === "CPT") {
         harmonic_type[1]++;
-      } else if (harmonic_result[i] === "B") {
+      } else if (harmonic_result[i] === "R") {
         harmonic_type[2]++;
       }
     }
@@ -212,6 +218,7 @@ function CheckPersonaChild({
         data: {
           name: name,
           personality: personality,
+          choice: total_result.sort((a, b) => a.key - b.key), //this is for sorting the array before sending to server
         },
       })
         .then((res) => {

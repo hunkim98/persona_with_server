@@ -1,5 +1,7 @@
 const { response } = require("express");
 const express = require("express");
+var cors = require("cors");
+var request = require("request");
 const app = express();
 const port = process.env.PORT || 5000;
 const Datastore = require("nedb");
@@ -8,12 +10,16 @@ const database = new Datastore("database.db");
 database.loadDatabase();
 app.use(express.json({ limit: "1mb" }));
 
-var request = require("request");
-
 app.get("/gatherData", (req, res) => {
   database.find({}, (err, docs) => {
+    res.header("Access-Control-Allow-Origin", "*");
     res.send(docs);
   });
+});
+
+app.get("/removeData", (req, res) => {
+  database.remove({}, { multi: true }, function (err, numRemoved) {});
+  res.send("removed data");
 });
 
 app.get("/getTokyo", (req, res) => {

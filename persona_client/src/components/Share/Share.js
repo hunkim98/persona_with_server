@@ -9,9 +9,9 @@ import {
 } from "../Result/mask_info";
 import { show_mask } from "../Result/mask_result";
 import { show_good_bad } from "../Result/mask_good_bad";
-import mask_pattern_white from "../svg/mask_pattern_white.svg";
 import { useMediaQuery } from "react-responsive";
 import { Spring } from "react-spring/renderprops";
+import { best_with_gender } from "../Result/BestWith";
 
 function Share({ changeColor }) {
   const isDesktopOrMobile = useMediaQuery({
@@ -278,6 +278,19 @@ function Share({ changeColor }) {
                   [해당 가면을 지닌 사람과 잘 지내려면?]
                 </div>
                 <ol className="info">{show_get_along(personality)}</ol>
+              </div>
+              <div className="best_with">
+                <div className="title">[짝으로서 좋은 가면]</div>
+                <div className="best_with_masks_container">
+                  <div className="best_with_masks man">
+                    <div className="gender_title">남자의 경우</div>
+                    {best_with_gender(personality, 0)}
+                  </div>
+                  <div className="best_with_masks woman">
+                    <div className="gender_title">여자의 경우</div>
+                    {best_with_gender(personality, 1)}
+                  </div>
+                </div>
               </div>
               <div className="result_button_container">
                 <div className="another_test">

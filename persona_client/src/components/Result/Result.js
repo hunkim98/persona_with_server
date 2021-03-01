@@ -13,6 +13,8 @@ import HideShow from "../HideShow/HideShow";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import { Spring } from "react-spring/renderprops";
 import { useParams } from "react-router-dom";
+import ReactGA from "react-ga";
+import { best_with_gender } from "./BestWith";
 
 function Result({ changeColor }) {
   let { id } = useParams();
@@ -67,6 +69,7 @@ function Result({ changeColor }) {
   };
 
   const kakao_share = () => {
+    ReactGA.event({ category: "Share", action: "Share by kakaotalk" });
     window.Kakao.Link.sendDefault({
       objectType: "feed",
       content: {
@@ -332,6 +335,19 @@ function Result({ changeColor }) {
                 </div>
                 <ol className="info">{show_get_along(personality)}</ol>
               </div>
+              <div className="best_with">
+                <div className="title">[짝으로서 좋은 가면]</div>
+                <div className="best_with_masks_container">
+                  <div className="best_with_masks man">
+                    <div className="gender_title">남자의 경우</div>
+                    {best_with_gender(personality, 0)}
+                  </div>
+                  <div className="best_with_masks woman">
+                    <div className="gender_title">여자의 경우</div>
+                    {best_with_gender(personality, 1)}
+                  </div>
+                </div>
+              </div>
               <div className="result_button_container">
                 <div className="share_result">
                   <div
@@ -358,9 +374,13 @@ function Result({ changeColor }) {
                           <div className="method">
                             <CopyToClipboard
                               text={baseURL + "share/" + id}
-                              onCopy={() =>
-                                alert("공유 링크가 복사되었습니다!")
-                              }
+                              onCopy={() => {
+                                ReactGA.event({
+                                  category: "Share",
+                                  action: "Share by copying link",
+                                });
+                                alert("공유 링크가 복사되었습니다!");
+                              }}
                             >
                               <img src={copy_link_button} alt="copy" />
                             </CopyToClipboard>

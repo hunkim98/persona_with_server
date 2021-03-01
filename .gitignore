@@ -16,3 +16,4 @@ yarn.lock
 .eslintcache
 .db
 persona_server/database.db
+persona_client/src/password.js

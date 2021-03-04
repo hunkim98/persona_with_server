@@ -69,6 +69,17 @@ function Basic({
       return (
         <>
           <div className="survey_container">
+            <div className="navbar_explain">
+              <div className="navbar_fake"></div>
+              <div className="navbar_middle">
+                <div className="uppper">^</div>
+                <div className="navbar_name">ABOUT</div>
+              </div>
+              <div className="navbar_right">
+                <div className="uppper">^</div>
+                <div className="navbar_name">MASKS</div>
+              </div>
+            </div>
             <div className="basic_container second_page_basic">
               <div className="continue_question">
                 {name} 님의
@@ -99,6 +110,17 @@ function Basic({
           {(props) => (
             <div style={props}>
               <div className="survey_container">
+                <div className="navbar_explain">
+                  <div className="navbar_fake"></div>
+                  <div className="navbar_middle">
+                    <div className="uppper">^</div>
+                    <div className="navbar_name">ABOUT</div>
+                  </div>
+                  <div className="navbar_right">
+                    <div className="uppper">^</div>
+                    <div className="navbar_name">MASKS</div>
+                  </div>
+                </div>
                 <div className="basic_container first_page_basic">
                   <svg
                     className="rotate"
@@ -116,6 +138,7 @@ function Basic({
                     <input
                       value={name}
                       onChange={nameHandler}
+                      placeholder="친구/애인/동료 아무나~"
                       className="name_input"
                       type="text"
                       onKeyPress={handleKeyPress}

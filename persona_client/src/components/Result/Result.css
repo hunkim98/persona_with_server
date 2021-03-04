@@ -310,9 +310,11 @@
 .gender_title {
   opacity: 0.7;
   font-weight: 600;
-  font-size: 18px;
+  font-size: 16px;
   margin-bottom: 10px;
   word-break: keep-all;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
 .best_with_masks {
@@ -344,7 +346,7 @@
 .pattern_mask_name {
   font-family: "Noto Sans CJK KR", sans-serif;
   font-size: 15px;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 /* end of best partner */
@@ -354,9 +356,10 @@
   font-family: "Noto Sans CJK KR", sans-serif;
   display: flex;
   flex-direction: row;
-  color: #ffffff;
+  color: #ececec;
   margin-bottom: 70px;
-  font-size: 15px;
+  font-size: 16px;
+  font-weight: 600;
   height: 125px;
 }
 

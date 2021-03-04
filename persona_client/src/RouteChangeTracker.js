@@ -6,7 +6,7 @@ const RouteChangeTracker = () => {
   const location = useLocation();
   useEffect(() => {
     let host = window.location.hostname;
-    if (host != "localhost") {
+    if (host !== "localhost") {
       const path = location.pathname + location.search;
       ReactGA.set({ page: path });
       ReactGA.pageview(path);

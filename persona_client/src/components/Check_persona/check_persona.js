@@ -36,7 +36,7 @@ function CheckPersona({
     },
     {
       question:
-        "대학교 교양 수업에서 그룹 발표 과제가 주어진다. 근데 팀 내 토의가 " +
+        "대학교 교양 수업에서 그룹 발표 과제가 주어진다. 그러나 팀 내 토의가 " +
         name +
         "님의 마음에 들지 않는 방향으로 흘러간다. 이때 " +
         name +
@@ -103,7 +103,7 @@ function CheckPersona({
       options: [
         { selection: "기업에 자기의 목소리를 전달하려고", id: "A" },
         {
-          selection: "참여를 꼭 해야겠다는 생각이 들어서",
+          selection: "주변 동료들에게 꼭 힘이 되어주고 싶어서",
           id: "CPL",
         },
         { selection: "주변에서 욕 먹기 싫어서", id: "W" },
@@ -118,7 +118,8 @@ function CheckPersona({
       options: [
         { selection: "레크레이션 활동 중 자신의 의견이 무시되는 것", id: "A" },
         {
-          selection: "숙소 뒷정리 시간에 자기만 청소하고 남들은 정리 안하는 것",
+          selection:
+            "숙소 뒷정리 시간에 자기만 청소하고 남들은 정리를 안하는 것",
           id: "CPL",
         },
         { selection: "본인에게 갑자기 장기자랑을 시키는 것", id: "W" },
@@ -158,7 +159,7 @@ function CheckPersona({
         "님이 애인과 가장 자주 다툴 법한 시나리오는?",
       options: [
         { selection: "애인이 본인의 말을 안 들으려 한다고 생각한다", id: "A" },
-        { selection: "애인이 자기의 기대만큼 안해준다고 생각하다", id: "CPL" },
+        { selection: "애인이 자기의 기대만큼 안해준다고 생각한다", id: "CPL" },
         { selection: "애인이 본인에게 과도하게 간섭한다고 생각한다", id: "W" },
       ],
       key: 8,
@@ -206,7 +207,7 @@ function CheckPersona({
         name +
         "님은 어느 밴드에 속해 있다. 일주일 뒤면 무대에 나가 공연을 해야하는데, 현재로서는 연습이 부족해 무대에 설 수 없을 것 같다. 이 상황에 대해 " +
         name +
-        "님이 보일 수 있는 반응 중," +
+        "님이 보일 수 있는 반응 중, " +
         name +
         "님에게서 가장 기대하기 어려운 반응은?",
       options: [
@@ -282,7 +283,7 @@ function CheckPersona({
         name +
         "님이 속한 집단이 어떤 난관에 부딪힌다. 집단 전체가 함께 이 난관에 반응하고 있다. " +
         name +
-        "님은 어떤 방식으로 대응하고 있을까?",
+        "님은 어떻게 대응할 것 같은가?",
       options: [
         {
           selection:

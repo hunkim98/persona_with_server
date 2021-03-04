@@ -21,7 +21,7 @@ function App() {
 
   useEffect(() => {
     let host = window.location.hostname;
-    if (host != "localhost") {
+    if (host !== "localhost") {
       ReactGA.initialize("UA-190746001-1");
       const path = location.pathname + location.search;
       ReactGA.set({ page: path });

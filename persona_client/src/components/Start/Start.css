@@ -12,9 +12,15 @@
   align-self: flex-end;
   position: absolute;
   top: -40px;
-  font-size: 13px;
+  font-size: 12px;
   font-family: "Noto Sans CJK KR", sans-serif;
+  font-weight: 600;
   display: flex;
+  opacity: 0.2;
+}
+
+.navbar_explain .navbar_name {
+  margin-top: -8px;
 }
 
 .navbar_middle {
@@ -43,7 +49,7 @@
   min-height: 400px;
 }
 .first_page_basic {
-  height: 65vh;
+  height: 60vh;
   min-height: 300px;
 }
 
@@ -225,7 +231,7 @@
 @media screen and (max-width: 1000px) {
   .navbar_explain {
     position: relative;
-    top: -20px;
+    top: -25px;
     width: 100%;
     justify-content: space-between;
   }

@@ -11,6 +11,7 @@ import Masks from "./components/masks/Masks";
 import Explanation from "./components/masks/Explanation";
 import ReactGA from "react-ga";
 import RouteChangeTracker from "./RouteChangeTracker";
+import Popup from "./components/Start/Popup";
 
 function App() {
   const [startBool, setStartBool] = useState([false, false]);
@@ -18,6 +19,7 @@ function App() {
   const [questionNumber, setQuestionNumber] = useState(0);
   const [color, changeColor] = useState("#ffffff");
   const location = useLocation();
+  const [popup, setPopup] = useState(true);
 
   useEffect(() => {
     let host = window.location.hostname;
@@ -43,6 +45,9 @@ function App() {
       id="main"
     >
       <RouteChangeTracker />
+      {popup && location.pathname === "/" ? (
+        <Popup setPopup={setPopup} />
+      ) : null}
       <Navbar
         setStartBool={setStartBool}
         setName={setName}

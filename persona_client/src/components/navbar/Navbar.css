@@ -84,7 +84,7 @@
     margin-right: 0px;
   }
   .navbar_menu:first-of-type {
-    width: auto;
+    width: 70px;
     display: flex;
     justify-content: center;
   }

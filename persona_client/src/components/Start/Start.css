@@ -20,7 +20,7 @@
 }
 
 .navbar_explain .navbar_name {
-  margin-top: -8px;
+  margin-top: -1px;
 }
 
 .navbar_middle {
@@ -231,7 +231,7 @@
 @media screen and (max-width: 1000px) {
   .navbar_explain {
     position: relative;
-    top: -25px;
+    top: -22px;
     width: 100%;
     justify-content: space-between;
   }

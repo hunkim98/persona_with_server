@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Switch, Route, useLocation } from "react-router-dom";
+import { useLocation, Switch, Route } from "react-router-dom";
 import Navbar from "./components/navbar/Navbar";
+import ReactGA from "react-ga";
+import RouteChangeTracker from "./RouteChangeTracker";
+import Popup from "./components/Start/Popup";
 import Basic from "./components/Start/Basic";
 import Result from "./components/Result/Result";
 import UserData from "./components/UserData/UserData";
@@ -9,9 +12,6 @@ import Home from "./components/Start/Home";
 import About from "./components/about/About";
 import Masks from "./components/masks/Masks";
 import Explanation from "./components/masks/Explanation";
-import ReactGA from "react-ga";
-import RouteChangeTracker from "./RouteChangeTracker";
-import Popup from "./components/Start/Popup";
 
 function App() {
   const [startBool, setStartBool] = useState([false, false]);

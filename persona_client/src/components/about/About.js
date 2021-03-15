@@ -8,6 +8,7 @@ import signature from "./signature.svg";
 import { useMediaQuery } from "react-responsive";
 import { Spring } from "react-spring/renderprops";
 import { CopyToClipboard } from "react-copy-to-clipboard";
+import { Helmet } from "react-helmet";
 
 function About({ changeColor }) {
   useEffect(() => {
@@ -18,6 +19,25 @@ function About({ changeColor }) {
   });
   return (
     <>
+      <Helmet>
+        <title>페르소나 성격심리 | About</title>
+        <meta charSet="utf-8" />
+        <meta
+          name="title"
+          property="og:title"
+          content="페르소나 성격심리란 무엇인가?"
+        />
+        <meta
+          name="description"
+          property="og:description"
+          content="페르소나 성격심리는 기존의 자가진단 중심의 성격심리테스트에서 벗어나 내 친구 혹은 연인의 성격을 알려주는 성격심리테스트 웹앱입니다"
+        />
+        <meta
+          name="url"
+          property="og:url"
+          content="https://personapersonality.com/about"
+        />
+      </Helmet>
       <Spring from={{ opacity: 0 }} to={{ opacity: 1 }}>
         {(props) => (
           <div style={props}>

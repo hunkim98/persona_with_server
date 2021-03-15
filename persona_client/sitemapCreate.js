@@ -6,20 +6,7 @@ const DOMAIN = "https://personapersonality.com";
 
 const formatting = (target) => prettier.format(target, { parser: "html" });
 
-let pages = [
-  "/",
-  "/about",
-  "/masks",
-  "/masks/1",
-  "/masks/2",
-  "/masks/3",
-  "/masks/4",
-  "/masks/5",
-  "/masks/6",
-  "/masks/7",
-  "/masks/8",
-  "/masks/9",
-];
+let pages = ["/", "/about", "/masks"];
 pages = pages.map((page) => DOMAIN + page);
 
 // 웹의 페이지에 따라 반복적으로 넣을 loc, loastmod

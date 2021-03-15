@@ -82,11 +82,6 @@ function Basic({
               property="og:description"
               content="이 성격심리테스트는 내가 아닌 상대방의 성격을 가면의 형태로 알려주는 심리테스트입니다. 사용하시기 전에 이거 하나 꼭 기억하세요! 이 심리테스트는 당신이 보는 상대방의 성격 가면을 알려줄 뿐, 상대방의 실제 성격이 아닐 수 있습니다!"
             />
-            <meta
-              name="url"
-              property="og:url"
-              content="https://personapersonality.com/"
-            />
           </Helmet>
           <div className="survey_container">
             <div className="navbar_explain">

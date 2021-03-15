@@ -32,11 +32,6 @@ function About({ changeColor }) {
           property="og:description"
           content="페르소나 성격심리는 기존의 자가진단 중심의 성격심리테스트에서 벗어나 내 친구 혹은 연인의 성격을 알려주는 성격심리테스트 웹앱입니다"
         />
-        <meta
-          name="url"
-          property="og:url"
-          content="https://personapersonality.com/about"
-        />
       </Helmet>
       <Spring from={{ opacity: 0 }} to={{ opacity: 1 }}>
         {(props) => (

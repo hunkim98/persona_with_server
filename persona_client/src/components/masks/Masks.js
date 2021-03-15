@@ -32,11 +32,6 @@ function Masks({ changeColor }) {
           property="og:description"
           content="페르소나 성격심리가 제공하는 성격심리 가면들을 모아놓은 곳입니다. 한 번 둘러보세요!"
         />
-        <meta
-          name="url"
-          property="og:url"
-          content="https://personapersonality.com/masks"
-        />
       </Helmet>
       <Spring from={{ opacity: 0 }} to={{ opacity: 1 }}>
         {(props) => (

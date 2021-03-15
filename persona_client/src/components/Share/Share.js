@@ -12,6 +12,7 @@ import { show_good_bad } from "../Result/mask_good_bad";
 import { useMediaQuery } from "react-responsive";
 import { Spring } from "react-spring/renderprops";
 import { best_with_gender } from "../Result/BestWith";
+import { Helmet } from "react-helmet";
 
 function Share({ changeColor }) {
   const isDesktopOrMobile = useMediaQuery({
@@ -46,6 +47,11 @@ function Share({ changeColor }) {
 
   return (
     <>
+      <Helmet>
+        <title>페르소나 성격심리</title>
+        <meta charSet="utf-8" />
+        <meta name="title" property="og:title" content="페르소나 성격심리" />
+      </Helmet>
       <Spring from={{ opacity: 0 }} to={{ opacity: 1 }}>
         {(props) => (
           <div style={props}>

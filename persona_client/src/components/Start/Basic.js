@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import logo from "../logo/brand(svg).svg";
 import { Spring } from "react-spring/renderprops";
 import Check_persona from "../Check_persona/check_persona";
-import Popup from "./Popup";
+import { Helmet } from "react-helmet";
 
 function Basic({
   setStartBool,
@@ -69,6 +69,25 @@ function Basic({
     } else
       return (
         <>
+          <Helmet>
+            <title>페르소나 성격심리</title>
+            <meta charSet="utf-8" />
+            <meta
+              name="title"
+              property="og:title"
+              content="내 친구/애인의 성격 가면을 알아보자!"
+            />
+            <meta
+              name="description"
+              property="og:description"
+              content="이 성격심리테스트는 내가 아닌 상대방의 성격을 가면의 형태로 알려주는 심리테스트입니다. 사용하시기 전에 이거 하나 꼭 기억하세요! 이 심리테스트는 당신이 보는 상대방의 성격 가면을 알려줄 뿐, 상대방의 실제 성격이 아닐 수 있습니다!"
+            />
+            <meta
+              name="url"
+              property="og:url"
+              content="https://personapersonality.com/"
+            />
+          </Helmet>
           <div className="survey_container">
             <div className="navbar_explain">
               <div className="navbar_fake"></div>

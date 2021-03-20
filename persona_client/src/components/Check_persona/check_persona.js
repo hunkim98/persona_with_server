@@ -29,21 +29,6 @@ function CheckPersona({
       ],
       key: 100,
     },
-    {
-      question: name + "님이 가장 좋아할 것 같은 미술작품은?",
-      options: [
-        {
-          selection: "극적인 장면을 연출한 미술작품",
-          id: 1,
-        },
-        {
-          selection: "시각적으로 아름다움을 느끼게 해주는 미술작품",
-          id: 2,
-        },
-        { selection: "세상을 다르게 보게끔 자극하는 미술작품", id: 3 },
-      ],
-      key: 101,
-    },
   ];
   const hornevian = [
     {

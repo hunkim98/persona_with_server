@@ -2,7 +2,13 @@ import React from "react";
 import { numbers, plusOne } from "./numbers";
 import "./questionCount.css";
 
-function questionCount({ questionNumber, harmonic, hornevian, goToBonus }) {
+function questionCount({
+  questionNumber,
+  harmonic,
+  hornevian,
+  goToBonus,
+  dummies,
+}) {
   return (
     <>
       {!goToBonus ? (
@@ -38,7 +44,7 @@ function questionCount({ questionNumber, harmonic, hornevian, goToBonus }) {
           <foreignObject display="flex" width="36" height="30" x="79" y="23.9">
             <img
               className="number_fit"
-              src={numbers[harmonic + hornevian - 1]}
+              src={numbers[harmonic + hornevian + dummies - 1]}
               alt="not"
             />
           </foreignObject>

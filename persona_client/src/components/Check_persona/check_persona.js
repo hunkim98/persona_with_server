@@ -11,6 +11,40 @@ function CheckPersona({
   setQuestionNumber,
   changeColor,
 }) {
+  const dummies = [
+    //this is for questions that I would like to know
+    {
+      question:
+        name +
+        "님에게 선물하면 가장 좋을 것 같은 술은? (" +
+        name +
+        "님이 술을 못 마시더라도 일단 여기서는 술을 '잘' 마신다고 가정하기)",
+      options: [
+        {
+          selection: "스트레스를 삼켜버리는 시원한 맛의 술",
+          id: 1,
+        },
+        { selection: "은은한 향을 머금고 있는 달콤한 술", id: 2 },
+        { selection: "깊이가 느껴지는 중후한 맛의 술", id: 3 },
+      ],
+      key: 100,
+    },
+    {
+      question: name + "님이 가장 좋아할 것 같은 미술작품은?",
+      options: [
+        {
+          selection: "극적인 장면을 연출한 미술작품",
+          id: 1,
+        },
+        {
+          selection: "시각적으로 아름다움을 느끼게 해주는 미술작품",
+          id: 2,
+        },
+        { selection: "세상을 다르게 보게끔 자극하는 미술작품", id: 3 },
+      ],
+      key: 101,
+    },
+  ];
   const hornevian = [
     {
       question:
@@ -325,10 +359,26 @@ function CheckPersona({
       hornevian[i] = hornevian[j];
       hornevian[j] = temp;
     }
+    for (let i = harmonic.length - 1; i > 0; i--) {
+      //shuffled the hornevian questions
+      const j = Math.floor(Math.random() * (i + 1));
+      const temp = harmonic[i];
+      harmonic[i] = harmonic[j];
+      harmonic[j] = temp;
+    }
+    for (let i = dummies.length - 1; i > 0; i--) {
+      //shuffled the hornevian questions
+      const j = Math.floor(Math.random() * (i + 1));
+      const temp = dummies[i];
+      dummies[i] = dummies[j];
+      dummies[j] = temp;
+    }
     changeColor("#c0baff");
   }, []);
 
   const [newHornevian, mixHornevian] = useState(hornevian);
+  const [newHarmonic, mixHarmonic] = useState(harmonic);
+  const [newDummies, mixDummies] = useState(dummies);
 
   return (
     <>
@@ -337,7 +387,8 @@ function CheckPersona({
         setQuestionNumber={setQuestionNumber}
         setPersonality={setPersonality}
         hornevian={newHornevian}
-        harmonic={harmonic}
+        harmonic={newHarmonic}
+        dummies={newDummies}
         types_adjectives={types_adjectives}
         name={name}
       />

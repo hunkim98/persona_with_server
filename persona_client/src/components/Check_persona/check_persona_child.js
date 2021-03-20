@@ -18,6 +18,7 @@ function CheckPersonaChild({
   setQuestionNumber,
   hornevian,
   harmonic,
+  dummies,
   types_adjectives,
 }) {
   const [personality, setPersonality] = useState(0);
@@ -38,7 +39,10 @@ function CheckPersonaChild({
         setQuestionNumber((previousNumber) => previousNumber + 1);
       }
     } else {
-      if (questionNumber === harmonic.length + hornevian.length - 1) {
+      if (
+        questionNumber ===
+        harmonic.length + hornevian.length + dummies.length - 1
+      ) {
         check_type();
         //do nothing
       } else {
@@ -51,19 +55,27 @@ function CheckPersonaChild({
   const show_question = () => {
     if (questionNumber < hornevian.length) {
       return hornevian[questionNumber].question;
+    } else if (questionNumber < hornevian.length + harmonic.length) {
+      return harmonic[questionNumber - hornevian.length].question;
     } else if (goToBonus) {
       return name + "님에게 가장 어울리는 수식어 하나는?";
     } else {
-      return harmonic[questionNumber - hornevian.length].question;
+      return (
+        //added dummies question
+        dummies[questionNumber - hornevian.length - harmonic.length].question
+      );
     }
   };
 
   const show_answer = (type) => {
     if (questionNumber < hornevian.length) {
       return hornevian[questionNumber].options[type].selection;
-    } else {
+    } else if (questionNumber < hornevian.length + harmonic.length) {
       return harmonic[questionNumber - hornevian.length].options[type]
         .selection;
+    } else {
+      return dummies[questionNumber - hornevian.length - harmonic.length]
+        .options[type].selection;
     }
   };
 
@@ -75,12 +87,21 @@ function CheckPersonaChild({
         key: hornevian[questionNumber].key,
         choice: hornevian[questionNumber].options[answer].id,
       };
-    } else {
+    } else if (questionNumber < hornevian.length + harmonic.length) {
       harmonic_result[questionNumber - hornevian.length] =
         harmonic[questionNumber - hornevian.length].options[answer].id;
       total_result[questionNumber] = {
         key: harmonic[questionNumber - hornevian.length].key,
         choice: harmonic[questionNumber - hornevian.length].options[answer].id,
+      };
+    } else {
+      //for dummy questions
+      total_result[questionNumber] = {
+        key: dummies[questionNumber - hornevian.length - harmonic.length].key,
+        choice:
+          dummies[questionNumber - hornevian.length - harmonic.length].options[
+            answer
+          ].id,
       };
     }
   };
@@ -235,7 +256,9 @@ function CheckPersonaChild({
   const previousQuestion = () => {
     if (goToBonus) {
       setGoToBonus(false);
-      setQuestionNumber(harmonic.length + hornevian.length - 1);
+      setQuestionNumber(
+        harmonic.length + hornevian.length + dummies.length - 1
+      );
       setPossibleTypes([]);
     } else {
       setQuestionNumber((previousNumber) => previousNumber - 1);
@@ -300,6 +323,7 @@ function CheckPersonaChild({
                 questionNumber={questionNumber}
                 hornevian={hornevian.length}
                 harmonic={harmonic.length}
+                dummies={dummies.length}
                 goToBonus={goToBonus}
               />
               <div className="persona_question">{show_question()}</div>

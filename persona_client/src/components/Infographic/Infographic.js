@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import DataVisualize from "./DataVisualize";
 import { mask_raw } from "../masks/mask_raw";
-import { mask_fit } from "./mask_fit";
+import { mask_fit, mask_fit_cover } from "./mask_fit";
 const mask_names = [
   "삐꺽거리는 로봇",
   "귀여운 날다람쥐",
@@ -24,6 +24,7 @@ function Infographic({ changeColor }) {
   const [name, setName] = useState("");
   const [percentage, setPercentage] = useState([]);
   const [masks, setMasks] = useState([]);
+  const [coverMasks, setCoverMasks] = useState([]);
   let complete_analysis = {};
   let chosenData;
   let json_data;
@@ -210,6 +211,12 @@ function Infographic({ changeColor }) {
           } else {
             if (key.slice(1, 3) == chosenData.personality) {
               setMasks((array) => [...array, mask_fit[chosenData.personality]]);
+              setCoverMasks((array) => [
+                ...array,
+                mask_fit_cover(complete_analysis[key] / 100)[
+                  chosenData.personality
+                ],
+              ]);
               console.log(masks);
             }
             setPercentage((array) => [
@@ -231,8 +238,10 @@ function Infographic({ changeColor }) {
               complete_analysis[key].toFixed(1) + "%",
             ]);
             setMasks((array) => [...array, mask_fit[key.slice(1, 3) - 1]]);
-            console.log(masks);
-            console.log(complete_analysis[key]);
+            setCoverMasks((array) => [
+              ...array,
+              mask_fit_cover(complete_analysis[key] / 100)[key.slice(1, 3) - 1],
+            ]);
             break;
           }
         }
@@ -248,29 +257,6 @@ function Infographic({ changeColor }) {
       });
   }, []);
 
-  const mask_percentage = () => {
-    // let maximum_option = 0;
-    // for (let key in complete_analysis) {
-    //   if (key.slice(1, 3) != chosenData.personality) {
-    //     if (complete_analysis[key] > maximum_option) {
-    //       maximum_option = complete_analysis[key];
-    //       console.log(maximum_option);
-    //     }
-    //   } else {
-    //     setPercentage(...percentage, complete_analysis[key].toFixed(1) + "%");
-    //   }
-    // }
-    // for (let key in complete_analysis) {
-    //   console.log(key);
-    //   if (
-    //     complete_analysis[key] == maximum_option &&
-    //     key.slice(1, 3) != chosenData.personality
-    //   ) {
-    //     setPercentage(...percentage, complete_analysis[key].toFixed(1) + "%");
-    //     return mask_fit[key.slice(1, 3) - 1];
-    //   }
-    // }
-  };
   return (
     <div>
       <div className="infographic_container">
@@ -289,27 +275,22 @@ function Infographic({ changeColor }) {
             </div>
             <div className="mask_option_container">
               <div className="mask_option">
-                <img src={masks[0]} alt="" />
-                <div className="percentage">{percentage[0]}</div>
+                <div className="cover_mask">{coverMasks[0]}</div>
+                <div className="transparent_mask">
+                  <img src={masks[0]} alt="" />
+                </div>
               </div>
               <div className="mask_option">
-                <img src={masks[1]} alt="" />
-                <div className="percentage">{percentage[1]}</div>
+                <div className="cover_mask">{coverMasks[1]}</div>
+                <div className="transparent_mask">
+                  <img src={masks[1]} alt="" />
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-        <div className="mask_comment">
-          <div className="comment1">
-            <div className="name"></div>의 지인은 <div className="name"></div>
-            님이 자신이 얻고 싶은 것을 얻기 위해 상대방과 상호작용하는 방법에
-            대해서
-            <div className="choice"></div>
-          </div>
-          <div className="comment2">
-            <div className="name"></div>의 지인은 <div className="name"></div>
-            님이 불안한 상황을 대처하는 방법에 대해
-            <div className="choice"></div>
+            <div className="percentage_container">
+              <div className="percentage_left">{percentage[0]}</div>
+              <div className="percentage_right">{percentage[1]}</div>
+            </div>
           </div>
         </div>
       </div>

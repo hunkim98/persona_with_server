@@ -12,6 +12,7 @@ import Home from "./components/Start/Home";
 import About from "./components/about/About";
 import Masks from "./components/masks/Masks";
 import Explanation from "./components/masks/Explanation";
+import Infographic from "./components/Infographic/Infographic";
 
 function App() {
   const [startBool, setStartBool] = useState([false, false]);
@@ -95,6 +96,12 @@ function App() {
         <Route
           path="/share/:id"
           render={(props) => <Share {...props} changeColor={changeColor} />}
+        />
+        <Route
+          path="/infographic/:id"
+          render={(props) => (
+            <Infographic {...props} changeColor={changeColor} />
+          )}
         />
       </Switch>
     </div>

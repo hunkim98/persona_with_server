@@ -1,0 +1,125 @@
+.infographic_container {
+  font-family: "Spoqa Han Sans Neo", "sans-serif";
+  font-weight: 600;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+.infographic {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.mask_map {
+  width: 100%;
+  max-width: 700px;
+  margin-bottom: 40px;
+}
+.mask_map .title_container {
+  font-size: 50px;
+  font-weight: 550;
+  display: flex;
+}
+.mask_analysis {
+  width: 100%;
+  max-width: 700px;
+}
+
+.mask_analysis .title_container {
+  display: flex;
+  justify-content: center;
+  font-size: 30px;
+  margin-top: 40px;
+}
+
+.mask_option_container img {
+  width: 100%;
+  height: auto;
+}
+.mask_option_container {
+  display: flex;
+  justify-content: center;
+}
+
+.mask_option {
+  background-color: antiquewhite;
+  width: 50%;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#my_dataviz {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  padding-bottom: 100%;
+  vertical-align: top;
+  overflow: hidden;
+}
+
+.svg-content {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.mask_analysis .title_container {
+  display: flex;
+  align-items: center;
+}
+.value {
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+.box-1:hover ~ .type1 {
+  opacity: 1;
+}
+.box-2:hover ~ .type2 {
+  opacity: 1;
+}
+.box-3:hover ~ .type3 {
+  opacity: 1;
+}
+.box-4:hover ~ .type4 {
+  opacity: 1;
+}
+.box-5:hover ~ .type5 {
+  opacity: 1;
+}
+.box-6:hover ~ .type6 {
+  opacity: 1;
+}
+.box-7:hover ~ .type7 {
+  opacity: 1;
+}
+.box-8:hover ~ .type8 {
+  opacity: 1;
+}
+.box-9:hover ~ .type9 {
+  opacity: 1;
+}
+
+.box-1:hover {
+  fill: black;
+}
+
+rect {
+  transition: all 0.3s ease;
+}
+
+image {
+  pointer-events: none;
+}
+#my_dataviz svg {
+  background-color: black;
+}
+
+@media only screen and (max-width: 1200px) {
+  .infographic {
+    flex-direction: column;
+    align-items: center;
+  }
+}

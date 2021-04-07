@@ -139,10 +139,16 @@
   width: 100%;
   max-width: 1000px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   margin-top: 30px;
 }
 
+.details_button {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
 .result_basic_information {
   font-size: 20px;
   width: 100%;

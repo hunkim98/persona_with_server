@@ -15,7 +15,6 @@ import { Spring } from "react-spring/renderprops";
 import { useParams } from "react-router-dom";
 import ReactGA from "react-ga";
 import { best_with_gender } from "./BestWith";
-import { Helmet } from "react-helmet";
 
 function Result({ changeColor }) {
   let { id } = useParams();
@@ -101,20 +100,6 @@ function Result({ changeColor }) {
 
   return (
     <>
-      <Helmet>
-        <title>페르소나 성격심리</title>
-        <meta charSet="utf-8" />
-        <meta
-          name="title"
-          property="og:title"
-          content="내 친구/애인의 성격 가면을 알아보자!"
-        />
-        <meta
-          name="description"
-          property="og:description"
-          content="이 성격심리테스트는 내가 아닌 상대방의 성격을 가면의 형태로 알려주는 심리테스트입니다. 사용하시기 전에 이거 하나 꼭 기억하세요! 이 심리테스트는 당신이 보는 상대방의 성격 가면을 알려줄 뿐, 상대방의 실제 성격이 아닐 수 있습니다!"
-        />
-      </Helmet>
       <Spring from={{ opacity: 0 }} to={{ opacity: 1 }}>
         {(props) => (
           <div style={props}>
@@ -304,6 +289,9 @@ function Result({ changeColor }) {
                 <div className="result_basic_information">
                   {show_basic_info(personality)}
                 </div>
+                <Link className="details_button" to={"/infographic/" + id}>
+                  상세분석&gt;
+                </Link>
               </div>
               <div className="result_divide">
                 <div className="line"></div>

@@ -249,7 +249,6 @@ function Infographic({ changeColor }) {
             break;
           }
         }
-        console.log(masks);
 
         DataVisualize(
           chosenData.personality,

@@ -3,6 +3,7 @@
   font-weight: 600;
   padding-left: 30px;
   padding-right: 30px;
+  margin-top: 30px;
 }
 .infographic {
   width: 100%;
@@ -23,9 +24,6 @@
 .mask_analysis {
   width: 100%;
   max-width: 700px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 }
 
 .mask_analysis .title_container {
@@ -84,6 +82,7 @@
   display: flex;
   justify-content: center;
   font-size: 30px;
+  margin-bottom: 100px;
 }
 
 .percentage_left {

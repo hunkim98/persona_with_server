@@ -151,6 +151,7 @@ function Infographic({ changeColor }) {
             }
           }
         }
+        console.log(complete_analysis);
 
         //add mask to it
         // const mask_option = document.createElement("div");
@@ -206,24 +207,27 @@ function Infographic({ changeColor }) {
           if (key.slice(1, 3) != chosenData.personality) {
             if (complete_analysis[key] > maximum_option) {
               maximum_option = complete_analysis[key];
-              console.log(maximum_option);
             }
           } else {
             if (key.slice(1, 3) == chosenData.personality) {
-              setMasks((array) => [...array, mask_fit[chosenData.personality]]);
+              console.log(key);
+              setMasks((array) => [
+                ...array,
+                mask_fit[chosenData.personality - 1],
+              ]);
               setCoverMasks((array) => [
                 ...array,
                 mask_fit_cover(complete_analysis[key] / 100)[
-                  chosenData.personality
+                  chosenData.personality - 1
                 ],
               ]);
               console.log(masks);
+              setPercentage((array) => [
+                ...array,
+                complete_analysis[key].toFixed(1) + "%",
+              ]);
+              console.log(complete_analysis[key]);
             }
-            setPercentage((array) => [
-              ...array,
-              complete_analysis[key].toFixed(1) + "%",
-            ]);
-            console.log(complete_analysis[key]);
           }
         }
 
@@ -245,6 +249,7 @@ function Infographic({ changeColor }) {
             break;
           }
         }
+        console.log(masks);
 
         DataVisualize(
           chosenData.personality,

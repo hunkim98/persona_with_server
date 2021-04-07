@@ -217,7 +217,7 @@ function Infographic({ changeColor }) {
               ]);
               setCoverMasks((array) => [
                 ...array,
-                mask_fit_cover(complete_analysis[key] / 100)[
+                mask_fit_cover(1 - complete_analysis[key] / 100)[
                   chosenData.personality - 1
                 ],
               ]);
@@ -244,7 +244,9 @@ function Infographic({ changeColor }) {
             setMasks((array) => [...array, mask_fit[key.slice(1, 3) - 1]]);
             setCoverMasks((array) => [
               ...array,
-              mask_fit_cover(complete_analysis[key] / 100)[key.slice(1, 3) - 1],
+              mask_fit_cover(1 - complete_analysis[key] / 100)[
+                key.slice(1, 3) - 1
+              ],
             ]);
             break;
           }

@@ -2,9 +2,8 @@ import React, { useEffect, useState } from "react";
 import "./Infographic.css";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import DataVisualize from "./DataVisualize";
-import { mask_raw } from "../masks/mask_raw";
 import { mask_fit, mask_fit_cover } from "./mask_fit";
+import Treemap from "../treemap/treemap";
 const mask_names = [
   "삐꺽거리는 로봇",
   "귀여운 날다람쥐",
@@ -16,7 +15,6 @@ const mask_names = [
   "불 같은 악마",
   "평화로운 자연인",
 ];
-
 function Infographic({ changeColor }) {
   let { id } = useParams();
   const [totalNumber, setTotalNumber] = useState(0);
@@ -25,12 +23,14 @@ function Infographic({ changeColor }) {
   const [percentage, setPercentage] = useState([]);
   const [masks, setMasks] = useState([]);
   const [coverMasks, setCoverMasks] = useState([]);
+  const [showMap, setShowMap] = useState(false);
+  const [analysis, setAnalysis] = useState({});
+  const [jsonData, setJsonData] = useState({});
+  const [personalityArray, setPersonalityArray] = useState([]);
   let complete_analysis = {};
   let chosenData;
-  let json_data;
-  let user_data;
+  let json_data = { children: [] };
   let personality_array = [0, 0, 0, 0, 0, 0, 0, 0, 0];
-  let sum_of_personality = 0;
   let chosen_data_analysis = { A: 0, CPL: 0, W: 0, P: 0, CPT: 0, R: 0 };
 
   useEffect(() => {
@@ -40,228 +40,170 @@ function Infographic({ changeColor }) {
     axios({
       method: "GET",
       url: "https://personapersonality.com/gatherData", //change this later
-    })
-      .then((res) => {
-        user_data = res.data;
-        setTotalNumber(user_data.length);
-      })
-      .then(() => {
-        for (let i = 0; i < user_data.length; i++) {
-          personality_array[user_data[i].personality - 1]++;
-          //this is for gathering all data of user_data
-          if (user_data[i]._id == id) {
-            chosenData = user_data[i];
-            setName(user_data[i].name);
-            setPersonality(user_data[i].personality);
+    }).then((res) => {
+      setTotalNumber(res.data.length);
+      for (let i = 0; i < res.data.length; i++) {
+        personality_array[res.data[i].personality - 1]++;
+        //this is for gathering all data of res.data
+        if (res.data[i]._id == id) {
+          chosenData = res.data[i];
+          setName(res.data[i].name);
+          setPersonality(res.data[i].personality);
+          setShowMap(true);
+        }
+      }
+      for (let key in chosen_data_analysis) {
+        //we use for.. in.. to loop json object
+        for (let i = 0; i < chosenData.choice.length; i++) {
+          if (key === chosenData.choice[i].choice) {
+            chosen_data_analysis[key]++;
           }
         }
-        for (let key in chosen_data_analysis) {
-          //we use for.. in.. to loop json object
-          for (let i = 0; i < chosenData.choice.length; i++) {
-            if (key === chosenData.choice[i].choice) {
-              chosen_data_analysis[key]++;
-            }
-          }
-        }
-        let min_hornevian = 9; //total of 9 hornevian questions
-        let min_harmonic = 5; //total of 5 harmonic questions
-        for (let key in chosen_data_analysis) {
-          if (key === "A" || key === "CPL" || key === "W") {
-            if (chosen_data_analysis[key] < min_hornevian) {
-              min_hornevian = chosen_data_analysis[key];
-            }
-          } else if (key === "P" || key === "CPT" || key === "R") {
-            if (chosen_data_analysis[key] < min_harmonic) {
-              min_harmonic = chosen_data_analysis[key];
-            }
-          }
-        }
-        for (let key in chosen_data_analysis) {
-          if (key === "A" || key === "CPL" || key === "W") {
-            if (
-              chosen_data_analysis[key] === min_hornevian &&
-              chosen_data_analysis[key] != 3
-            ) {
-              delete chosen_data_analysis[key]; // this deletes the element
-            }
-          } else if (key === "P" || key === "CPT" || key === "R") {
-            if (chosen_data_analysis[key] === min_harmonic) {
-              delete chosen_data_analysis[key];
-            }
-          }
-        }
-        let hornevian_length = 9; //total of 9 hornevian questions
-        let harmonic_length = 5;
-        for (let key in chosen_data_analysis) {
-          if (key === "A" || key === "CPL" || key === "W") {
-            for (let nested_key in chosen_data_analysis) {
-              //nested loop
-              if (key === "A") {
-                if (nested_key === "P") {
-                  complete_analysis["E7"] =
-                    (chosen_data_analysis[key] / hornevian_length +
-                      chosen_data_analysis[nested_key] / harmonic_length) *
-                    50;
-                } else if (nested_key === "CPT") {
-                  complete_analysis["E3"] =
-                    (chosen_data_analysis[key] / hornevian_length +
-                      chosen_data_analysis[nested_key] / harmonic_length) *
-                    50;
-                } else if (nested_key === "R") {
-                  complete_analysis["E8"] =
-                    (chosen_data_analysis[key] / hornevian_length +
-                      chosen_data_analysis[nested_key] / harmonic_length) *
-                    50;
-                }
-              } else if (key === "CPL") {
-                if (nested_key === "P") {
-                  complete_analysis["E2"] =
-                    (chosen_data_analysis[key] / hornevian_length +
-                      chosen_data_analysis[nested_key] / harmonic_length) *
-                    50;
-                } else if (nested_key === "CPT") {
-                  complete_analysis["E1"] =
-                    (chosen_data_analysis[key] / hornevian_length +
-                      chosen_data_analysis[nested_key] / harmonic_length) *
-                    50;
-                } else if (nested_key === "R") {
-                  complete_analysis["E6"] =
-                    (chosen_data_analysis[key] / hornevian_length +
-                      chosen_data_analysis[nested_key] / harmonic_length) *
-                    50;
-                }
-              } else if (key === "W") {
-                if (nested_key === "P") {
-                  complete_analysis["E9"] =
-                    (chosen_data_analysis[key] / hornevian_length +
-                      chosen_data_analysis[nested_key] / harmonic_length) *
-                    50;
-                } else if (nested_key === "CPT") {
-                  complete_analysis["E5"] =
-                    (chosen_data_analysis[key] / hornevian_length +
-                      chosen_data_analysis[nested_key] / harmonic_length) *
-                    50;
-                } else if (nested_key === "R") {
-                  complete_analysis["E4"] =
-                    (chosen_data_analysis[key] / hornevian_length +
-                      chosen_data_analysis[nested_key] / harmonic_length) *
-                    50;
-                }
-              }
-            }
-          }
-        }
-        console.log(complete_analysis);
+      }
 
-        //add mask to it
-        // const mask_option = document.createElement("div");
-        // mask_option.className = "mask_option";
-        // const mask_option_img = document.createElement("img");
-        // const mask_percentage = document.createElement("div");
-        // let maximum_option = 0;
-        // for (let i = 1; i < 10; i++) {
-        //   if (chosenData.personality === i) {
-        //     mask_option_img.src = mask_raw[i - 1];
-        //     mask_option.appendChild(mask_option_img);
-        //     for (let key in complete_analysis) {
-        //       if (key.slice(1, 3) != chosenData.personality) {
-        //         if (complete_analysis[key] > maximum_option) {
-        //           maximum_option = complete_analysis[key];
-        //           console.log(maximum_option);
-        //         }
-        //       } else {
-        //         mask_percentage.innerHTML =
-        //           complete_analysis[key].toFixed(1) + "%";
-        //         console.log(mask_percentage);
-        //         mask_option.appendChild(mask_percentage);
-        //       }
-        //     }
-        //     document
-        //       .querySelector(".mask_option_container")
-        //       .appendChild(mask_option);
-        //   }
-        // }
-        // const mask_second_option = document.createElement("div");
-        // const mask_second_option_img = document.createElement("img");
-        // mask_second_option.className = "mask_option";
-        // const mask_second_percentage = document.createElement("div");
-        // for (let key in complete_analysis) {
-        //   if (
-        //     complete_analysis[key] == maximum_option &&
-        //     key.slice(1, 3) != chosenData.personality
-        //   ) {
-        //     mask_second_option_img.src = mask_raw[key.slice(1, 3) - 1];
-        //     mask_second_option.appendChild(mask_second_option_img);
-        //     mask_second_percentage.innerHTML =
-        //       complete_analysis[key].toFixed(1) + "%";
-        //     mask_second_option.appendChild(mask_second_percentage);
-        //     document
-        //       .querySelector(".mask_option_container")
-        //       .appendChild(mask_second_option);
-
-        //     break;
-        //   }
-        // }
-        let maximum_option = 0;
-        for (let key in complete_analysis) {
-          if (key.slice(1, 3) != chosenData.personality) {
-            if (complete_analysis[key] > maximum_option) {
-              maximum_option = complete_analysis[key];
-            }
-          } else {
-            if (key.slice(1, 3) == chosenData.personality) {
-              console.log(key);
-              setMasks((array) => [
-                ...array,
-                mask_fit[chosenData.personality - 1],
-              ]);
-              setCoverMasks((array) => [
-                ...array,
-                mask_fit_cover(1 - complete_analysis[key] / 100)[
-                  chosenData.personality - 1
-                ],
-              ]);
-              console.log(masks);
-              setPercentage((array) => [
-                ...array,
-                complete_analysis[key].toFixed(1) + "%",
-              ]);
-              console.log(complete_analysis[key]);
-            }
-          }
-        }
-
-        for (let key in complete_analysis) {
-          console.log(key);
-          if (
-            complete_analysis[key] == maximum_option &&
-            key.slice(1, 3) != chosenData.personality
-          ) {
-            setPercentage((array) => [
-              ...array,
-              complete_analysis[key].toFixed(1) + "%",
-            ]);
-            setMasks((array) => [...array, mask_fit[key.slice(1, 3) - 1]]);
-            setCoverMasks((array) => [
-              ...array,
-              mask_fit_cover(1 - complete_analysis[key] / 100)[
-                key.slice(1, 3) - 1
-              ],
-            ]);
-            break;
-          }
-        }
-
-        DataVisualize(
-          chosenData.personality,
-          sum_of_personality,
-          json_data,
-          mask_names,
-          personality_array,
-          mask_raw
-        );
-      });
+      for (let j = 0; j < 9; j++) {
+        json_data.children[j] = {
+          name: mask_names[j],
+          value: personality_array[j],
+          id: j + 1,
+        };
+      }
+      setPersonalityArray(personality_array);
+      setAnalysis(chosen_data_analysis);
+      setJsonData(json_data);
+      console.log(json_data);
+    });
   }, []);
+  useEffect(() => {
+    let min_hornevian = 9; //total of 9 hornevian questions
+    let min_harmonic = 5; //total of 5 harmonic questions
+    for (let key in analysis) {
+      if (key === "A" || key === "CPL" || key === "W") {
+        if (analysis[key] < min_hornevian) {
+          min_hornevian = analysis[key];
+        }
+      } else if (key === "P" || key === "CPT" || key === "R") {
+        if (analysis[key] < min_harmonic) {
+          min_harmonic = analysis[key];
+        }
+      }
+    }
+    for (let key in analysis) {
+      if (key === "A" || key === "CPL" || key === "W") {
+        if (analysis[key] === min_hornevian && analysis[key] != 3) {
+          delete analysis[key]; // this deletes the element
+        }
+      } else if (key === "P" || key === "CPT" || key === "R") {
+        if (analysis[key] === min_harmonic) {
+          delete analysis[key];
+        }
+      }
+    }
+    let hornevian_length = 9; //total of 9 hornevian questions
+    let harmonic_length = 5;
+    for (let key in analysis) {
+      if (key === "A" || key === "CPL" || key === "W") {
+        for (let nested_key in analysis) {
+          //nested loop
+          if (key === "A") {
+            if (nested_key === "P") {
+              complete_analysis["E7"] =
+                (analysis[key] / hornevian_length +
+                  analysis[nested_key] / harmonic_length) *
+                50;
+            } else if (nested_key === "CPT") {
+              complete_analysis["E3"] =
+                (analysis[key] / hornevian_length +
+                  analysis[nested_key] / harmonic_length) *
+                50;
+            } else if (nested_key === "R") {
+              complete_analysis["E8"] =
+                (analysis[key] / hornevian_length +
+                  analysis[nested_key] / harmonic_length) *
+                50;
+            }
+          } else if (key === "CPL") {
+            if (nested_key === "P") {
+              complete_analysis["E2"] =
+                (analysis[key] / hornevian_length +
+                  analysis[nested_key] / harmonic_length) *
+                50;
+            } else if (nested_key === "CPT") {
+              complete_analysis["E1"] =
+                (analysis[key] / hornevian_length +
+                  analysis[nested_key] / harmonic_length) *
+                50;
+            } else if (nested_key === "R") {
+              complete_analysis["E6"] =
+                (analysis[key] / hornevian_length +
+                  analysis[nested_key] / harmonic_length) *
+                50;
+            }
+          } else if (key === "W") {
+            if (nested_key === "P") {
+              complete_analysis["E9"] =
+                (analysis[key] / hornevian_length +
+                  analysis[nested_key] / harmonic_length) *
+                50;
+            } else if (nested_key === "CPT") {
+              complete_analysis["E5"] =
+                (analysis[key] / hornevian_length +
+                  analysis[nested_key] / harmonic_length) *
+                50;
+            } else if (nested_key === "R") {
+              complete_analysis["E4"] =
+                (analysis[key] / hornevian_length +
+                  analysis[nested_key] / harmonic_length) *
+                50;
+            }
+          }
+        }
+      }
+    }
+    console.log(complete_analysis);
+    let maximum_option = 0;
+    for (let key in complete_analysis) {
+      if (key.slice(1, 3) != personality) {
+        if (complete_analysis[key] > maximum_option) {
+          maximum_option = complete_analysis[key];
+        }
+      } else {
+        if (key.slice(1, 3) == personality) {
+          console.log(key);
+          setMasks((array) => [...array, mask_fit[personality - 1]]);
+          setCoverMasks((array) => [
+            ...array,
+            mask_fit_cover(1 - complete_analysis[key] / 100)[personality - 1],
+          ]);
+          console.log(masks);
+          setPercentage((array) => [
+            ...array,
+            complete_analysis[key].toFixed(1) + "%",
+          ]);
+          console.log(complete_analysis[key]);
+        }
+      }
+    }
+
+    for (let key in complete_analysis) {
+      console.log(key);
+      if (
+        complete_analysis[key] == maximum_option &&
+        key.slice(1, 3) != personality
+      ) {
+        setPercentage((array) => [
+          ...array,
+          complete_analysis[key].toFixed(1) + "%",
+        ]);
+        setMasks((array) => [...array, mask_fit[key.slice(1, 3) - 1]]);
+        setCoverMasks((array) => [
+          ...array,
+          mask_fit_cover(1 - complete_analysis[key] / 100)[key.slice(1, 3) - 1],
+        ]);
+        break;
+      }
+    }
+  }, [analysis]);
 
   return (
     <div>
@@ -269,11 +211,16 @@ function Infographic({ changeColor }) {
         <div className="infographic">
           <div className="mask_map">
             <div className="title_container">
-              <div className="title">페르소나 분포도</div>(
-              <div className="number">{totalNumber}</div>)
+              <div className="title">상대방의 가면은 흔할까?</div>(
+              <div className="number">{totalNumber}명 기준</div>)
             </div>
-            <div id="my_dataviz"></div>
-            <script src="infographic.js"></script>
+            {showMap ? (
+              <Treemap
+                personality={personality}
+                data={jsonData}
+                personalityArray={personalityArray}
+              />
+            ) : null}
           </div>
           <div className="mask_analysis">
             <div className="title_container">

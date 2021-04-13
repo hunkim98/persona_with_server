@@ -53,8 +53,13 @@
   opacity: 1;
 }
 
+.cover_mask > div {
+  border-right: red 4px solid;
+  margin-left: 4px;
+}
+
 .mask_option .transparent_mask {
-  opacity: 0.2;
+  opacity: 0.15;
 }
 
 #my_dataviz {
@@ -154,33 +159,6 @@ rect {
 
 image {
   pointer-events: none;
-}
-
-.cover1 {
-  -ms-transform: translate(-189.38px);
-  -moz-transform: translate(-189.38px);
-  -webkit-transform: translate(-189.38px);
-  -o-transform: translate(-189.38px);
-  transform: translate(-189.38px);
-}
-.cover2 {
-}
-.cover3 {
-}
-.cover4 {
-}
-.cover5 {
-}
-.cover6 {
-  transform: translate(-204.54px);
-}
-.cover7 {
-}
-.cover8 {
-}
-.cover9 {
-}
-.cover10 {
 }
 
 @media only screen and (max-width: 1200px) {

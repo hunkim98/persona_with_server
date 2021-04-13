@@ -24,9 +24,22 @@ function Infographic({ changeColor }) {
   const [masks, setMasks] = useState([]);
   const [coverMasks, setCoverMasks] = useState([]);
   const [showMap, setShowMap] = useState(false);
+  const [showMasks, setShowMasks] = useState(false);
   const [analysis, setAnalysis] = useState({});
   const [jsonData, setJsonData] = useState({});
   const [personalityArray, setPersonalityArray] = useState([]);
+  const [maskSize, setMaskSize] = useState([
+    189.38,
+    262.49,
+    195.41,
+    199.28,
+    158.1,
+    204.54,
+    191.03,
+    149.21,
+    105.85,
+  ]);
+  const [coverStyle, setCoverStyle] = useState([]);
   let complete_analysis = {};
   let chosenData;
   let json_data = { children: [] };

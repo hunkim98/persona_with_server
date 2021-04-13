@@ -1,8 +1,8 @@
 .infographic_container {
   font-family: "Noto Sans CJK KR", sans-serif;
   font-weight: 600;
-  padding-left: 30px;
-  padding-right: 30px;
+  padding-left: 3vw;
+  padding-right: 3vw;
   margin-top: 30px;
 }
 .infographic {
@@ -154,6 +154,33 @@ rect {
 
 image {
   pointer-events: none;
+}
+
+.cover1 {
+  -ms-transform: translate(-189.38px);
+  -moz-transform: translate(-189.38px);
+  -webkit-transform: translate(-189.38px);
+  -o-transform: translate(-189.38px);
+  transform: translate(-189.38px);
+}
+.cover2 {
+}
+.cover3 {
+}
+.cover4 {
+}
+.cover5 {
+}
+.cover6 {
+  transform: translate(-204.54px);
+}
+.cover7 {
+}
+.cover8 {
+}
+.cover9 {
+}
+.cover10 {
 }
 
 @media only screen and (max-width: 1200px) {

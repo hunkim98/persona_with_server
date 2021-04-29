@@ -58,8 +58,14 @@
   margin-left: 4px;
 }
 
-.mask_option .transparent_mask {
-  opacity: 0.15;
+.cover_mask {
+  z-index: 1;
+}
+
+.mask_option .transparent_mask svg {
+  filter: gray; /* IE6-9 */
+  -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
+  filter: grayscale(1); /* Microsoft Edge and Firefox 35+ */
 }
 
 #my_dataviz {

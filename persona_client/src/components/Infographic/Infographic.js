@@ -24,22 +24,10 @@ function Infographic({ changeColor }) {
   const [masks, setMasks] = useState([]);
   const [coverMasks, setCoverMasks] = useState([]);
   const [showMap, setShowMap] = useState(false);
-  const [showMasks, setShowMasks] = useState(false);
   const [analysis, setAnalysis] = useState({});
   const [jsonData, setJsonData] = useState({});
   const [personalityArray, setPersonalityArray] = useState([]);
-  const [maskSize, setMaskSize] = useState([
-    189.38,
-    262.49,
-    195.41,
-    199.28,
-    158.1,
-    204.54,
-    191.03,
-    149.21,
-    105.85,
-  ]);
-  const [coverStyle, setCoverStyle] = useState([]);
+  const [size, setSize] = useState(1);
   let complete_analysis = {};
   let chosenData;
   let json_data = { children: [] };
@@ -183,10 +171,12 @@ function Infographic({ changeColor }) {
       } else {
         if (key.slice(1, 3) == personality) {
           console.log(key);
-          setMasks((array) => [...array, mask_fit[personality - 1]]);
+          setMasks((array) => [...array, mask_fit(size)[personality - 1]]);
           setCoverMasks((array) => [
             ...array,
-            mask_fit_cover(1 - complete_analysis[key] / 100)[personality - 1],
+            mask_fit_cover(1 - complete_analysis[key] / 100, size)[
+              personality - 1
+            ],
           ]);
           console.log(masks);
           setPercentage((array) => [
@@ -208,10 +198,12 @@ function Infographic({ changeColor }) {
           ...array,
           complete_analysis[key].toFixed(1) + "%",
         ]);
-        setMasks((array) => [...array, mask_fit[key.slice(1, 3) - 1]]);
+        setMasks((array) => [...array, mask_fit(size)[key.slice(1, 3) - 1]]);
         setCoverMasks((array) => [
           ...array,
-          mask_fit_cover(1 - complete_analysis[key] / 100)[key.slice(1, 3) - 1],
+          mask_fit_cover(1 - complete_analysis[key] / 100, size)[
+            key.slice(1, 3) - 1
+          ],
         ]);
         break;
       }
@@ -242,15 +234,11 @@ function Infographic({ changeColor }) {
             <div className="mask_option_container">
               <div className="mask_option">
                 <div className="cover_mask">{coverMasks[0]}</div>
-                <div className="transparent_mask">
-                  <img src={masks[0]} alt="" />
-                </div>
+                <div className="transparent_mask">{masks[0]}</div>
               </div>
               <div className="mask_option">
                 <div className="cover_mask">{coverMasks[1]}</div>
-                <div className="transparent_mask">
-                  <img src={masks[1]} alt="" />
-                </div>
+                <div className="transparent_mask">{masks[1]}</div>
               </div>
             </div>
             <div className="percentage_container">

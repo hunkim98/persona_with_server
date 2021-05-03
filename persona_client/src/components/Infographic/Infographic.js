@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useLayoutEffect } from "react";
 import "./Infographic.css";
 import { useParams } from "react-router-dom";
 import axios from "axios";
@@ -33,6 +33,26 @@ function Infographic({ changeColor }) {
   let json_data = { children: [] };
   let personality_array = [0, 0, 0, 0, 0, 0, 0, 0, 0];
   let chosen_data_analysis = { A: 0, CPL: 0, W: 0, P: 0, CPT: 0, R: 0 };
+  const [windowSize, setWindowSize] = useState([0, 0]);
+
+  useLayoutEffect(() => {
+    //this is for checking windowSize
+    function updateSize() {
+      setWindowSize([window.innerWidth, window.innerHeight]);
+    }
+    window.addEventListener("resize", updateSize);
+    updateSize();
+    return () => window.removeEventListener("resize", updateSize);
+  }, []);
+
+  useEffect(() => {
+    console.log(windowSize);
+    if (windowSize[0] < 1300) {
+      setSize(0.8);
+    } else {
+      setSize(1);
+    }
+  }, [windowSize]);
 
   useEffect(() => {
     changeColor("#76729F");
@@ -171,12 +191,10 @@ function Infographic({ changeColor }) {
       } else {
         if (key.slice(1, 3) == personality) {
           console.log(key);
-          setMasks((array) => [...array, mask_fit(size)[personality - 1]]);
+          setMasks((array) => [...array, [personality - 1]]);
           setCoverMasks((array) => [
             ...array,
-            mask_fit_cover(1 - complete_analysis[key] / 100, size)[
-              personality - 1
-            ],
+            1 - complete_analysis[key] / 100,
           ]);
           console.log(masks);
           setPercentage((array) => [
@@ -198,13 +216,8 @@ function Infographic({ changeColor }) {
           ...array,
           complete_analysis[key].toFixed(1) + "%",
         ]);
-        setMasks((array) => [...array, mask_fit(size)[key.slice(1, 3) - 1]]);
-        setCoverMasks((array) => [
-          ...array,
-          mask_fit_cover(1 - complete_analysis[key] / 100, size)[
-            key.slice(1, 3) - 1
-          ],
-        ]);
+        setMasks((array) => [...array, key.slice(1, 3) - 1]);
+        setCoverMasks((array) => [...array, 1 - complete_analysis[key] / 100]);
         break;
       }
     }
@@ -216,8 +229,9 @@ function Infographic({ changeColor }) {
         <div className="infographic">
           <div className="mask_map">
             <div className="title_container">
-              <div className="title">상대방의 가면은 흔할까?</div>(
-              <div className="number">{totalNumber}명 기준</div>)
+              <div className="title">
+                상대방의 가면은 흔할까?({totalNumber}명 기준)
+              </div>
             </div>
             {showMap ? (
               <Treemap
@@ -232,18 +246,32 @@ function Infographic({ changeColor }) {
               <div className="title">{name}님에게서 보이는 가면</div>
             </div>
             <div className="mask_option_container">
-              <div className="mask_option">
-                <div className="cover_mask">{coverMasks[0]}</div>
-                <div className="transparent_mask">{masks[0]}</div>
+              <div className="option_info">
+                <div className="mask_option">
+                  <div className="cover_mask">
+                    {coverMasks.length !== 0
+                      ? mask_fit_cover(coverMasks[0], size)[masks[0]]
+                      : null}
+                  </div>
+                  <div className="transparent_mask">
+                    {masks.length !== 0 ? mask_fit(size)[masks[0]] : null}
+                  </div>
+                </div>
+                <div className="percentage">{percentage[0]}</div>
               </div>
-              <div className="mask_option">
-                <div className="cover_mask">{coverMasks[1]}</div>
-                <div className="transparent_mask">{masks[1]}</div>
+              <div className="option_info">
+                <div className="mask_option">
+                  <div className="cover_mask">
+                    {coverMasks.length !== 0
+                      ? mask_fit_cover(coverMasks[1], size)[masks[1]]
+                      : null}
+                  </div>
+                  <div className="transparent_mask">
+                    {masks.length !== 0 ? mask_fit(size)[masks[1]] : null}
+                  </div>
+                </div>
+                <div className="percentage">{percentage[1]}</div>
               </div>
-            </div>
-            <div className="percentage_container">
-              <div className="percentage_left">{percentage[0]}</div>
-              <div className="percentage_right">{percentage[1]}</div>
             </div>
           </div>
         </div>

@@ -85,8 +85,8 @@
   opacity: 0.4;
 }
 
-.option_info:first-child .percentage {
-  margin-bottom: 50px;
+.additional {
+  margin-top: 50px;
 }
 
 .mask_option .cover_mask {
@@ -191,6 +191,9 @@ image {
 }
 
 @media only screen and (max-width: 1300px) {
+  .additional {
+    margin-top: 0;
+  }
   .mask_percentage_container {
     margin-left: 0;
     padding-bottom: 20px;

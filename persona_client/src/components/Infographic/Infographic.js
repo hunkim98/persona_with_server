@@ -333,15 +333,19 @@ function Infographic({ changeColor }) {
                   >
                     {mask_names[masks[0]]}
                   </div>{" "}
-                  가면을 갖고 있고,{" "}
-                  <div className="percentage_number">{percentage[1]}</div>의
-                  확률로{" "}
-                  <div
-                    className="mask_name"
-                    style={{ color: colors[masks[1]] }}
-                  >
-                    {mask_names[masks[1]]}
-                  </div>{" "}
+                  {masks.length > 1 ? (
+                    <div className="additional_mobile">
+                      가면을 갖고 있고,{" "}
+                      <div className="percentage_number">{percentage[1]}</div>의
+                      확률로{" "}
+                      <div
+                        className="mask_name"
+                        style={{ color: colors[masks[1]] }}
+                      >
+                        {mask_names[masks[1]]}
+                      </div>{" "}
+                    </div>
+                  ) : null}
                   가면을 갖고 있습니다
                 </div>
               ) : null}

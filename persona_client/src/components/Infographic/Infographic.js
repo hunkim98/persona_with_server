@@ -15,6 +15,17 @@ const mask_names = [
   "불 같은 악마",
   "평화로운 자연인",
 ];
+const colors = [
+  "#FFC312",
+  "#FDA7DF",
+  "#12CBC4",
+  "#9980FA",
+  "#12CBC4",
+  "#FDA7DF",
+  "#C4E538",
+  "#EA2027",
+  "#FDA7DF",
+];
 function Infographic({ changeColor }) {
   let { id } = useParams();
   const [totalNumber, setTotalNumber] = useState(0);
@@ -245,33 +256,91 @@ function Infographic({ changeColor }) {
             <div className="title_container">
               <div className="title">{name}님에게서 보이는 가면</div>
             </div>
-            <div className="mask_option_container">
-              <div className="option_info">
-                <div className="mask_option">
-                  <div className="cover_mask">
-                    {coverMasks.length !== 0
-                      ? mask_fit_cover(coverMasks[0], size)[masks[0]]
-                      : null}
+            <div className="mask_percentage_container">
+              <div className="mask_option_container">
+                <div className="option_info">
+                  <div className="mask_card">
+                    <div className="mask_option">
+                      <div className="cover_mask">
+                        {coverMasks.length !== 0
+                          ? mask_fit_cover(coverMasks[0], size)[masks[0]]
+                          : null}
+                      </div>
+                      <div className="transparent_mask">
+                        {masks.length !== 0 ? mask_fit(size)[masks[0]] : null}
+                      </div>
+                    </div>
+                    {windowSize[0] < 1300 ? null : (
+                      <div className="mask_percentage_explanation">
+                        {name}님은{" "}
+                        <div className="percentage_number">{percentage[0]}</div>
+                        의 확률로{" "}
+                        <div
+                          className="mask_name"
+                          style={{ color: colors[masks[0]] }}
+                        >
+                          {mask_names[masks[0]]}
+                        </div>{" "}
+                        가면을 갖고 있습니다
+                      </div>
+                    )}
                   </div>
-                  <div className="transparent_mask">
-                    {masks.length !== 0 ? mask_fit(size)[masks[0]] : null}
-                  </div>
+                  <div className="percentage">{percentage[0]}</div>
                 </div>
-                <div className="percentage">{percentage[0]}</div>
-              </div>
-              <div className="option_info">
-                <div className="mask_option">
-                  <div className="cover_mask">
-                    {coverMasks.length !== 0
-                      ? mask_fit_cover(coverMasks[1], size)[masks[1]]
-                      : null}
+                <div className="option_info">
+                  <div className="mask_card">
+                    <div className="mask_option">
+                      <div className="cover_mask">
+                        {coverMasks.length !== 0
+                          ? mask_fit_cover(coverMasks[1], size)[masks[1]]
+                          : null}
+                      </div>
+                      <div className="transparent_mask">
+                        {masks.length !== 0 ? mask_fit(size)[masks[1]] : null}
+                      </div>
+                    </div>
+                    {windowSize[0] < 1300 ? null : (
+                      <div className="mask_percentage_explanation">
+                        {name}님은{" "}
+                        <div className="percentage_number">{percentage[1]}</div>
+                        의 확률로{" "}
+                        <div
+                          className="mask_name"
+                          style={{ color: colors[masks[1]] }}
+                        >
+                          {mask_names[masks[1]]}
+                        </div>{" "}
+                        가면을 갖고 있습니다
+                      </div>
+                    )}
                   </div>
-                  <div className="transparent_mask">
-                    {masks.length !== 0 ? mask_fit(size)[masks[1]] : null}
-                  </div>
+                  <div className="percentage">{percentage[1]}</div>
                 </div>
-                <div className="percentage">{percentage[1]}</div>
               </div>
+
+              {windowSize[0] < 1300 ? (
+                <div className="mask_percentage_explanation">
+                  {name}님은{" "}
+                  <div className="percentage_number">{percentage[0]}</div>의
+                  확률로{" "}
+                  <div
+                    className="mask_name"
+                    style={{ color: colors[masks[0]] }}
+                  >
+                    {mask_names[masks[0]]}
+                  </div>{" "}
+                  가면을 갖고 있고,{" "}
+                  <div className="percentage_number">{percentage[1]}</div>의
+                  확률로{" "}
+                  <div
+                    className="mask_name"
+                    style={{ color: colors[masks[1]] }}
+                  >
+                    {mask_names[masks[1]]}
+                  </div>{" "}
+                  가면을 갖고 있습니다
+                </div>
+              ) : null}
             </div>
           </div>
         </div>

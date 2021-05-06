@@ -289,9 +289,9 @@ function Result({ changeColor }) {
                 <div className="result_basic_information">
                   {show_basic_info(personality)}
                 </div>
-                {/* <Link className="details_button" to={"/infographic/" + id}>
+                <Link className="details_button" to={"/infographic/" + id}>
                   상세분석&gt;
-                </Link> */}
+                </Link>
               </div>
               <div className="result_divide">
                 <div className="line"></div>

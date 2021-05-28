@@ -23,10 +23,8 @@ app.get("/test", (req, res) => {
 app.get("/backupData", (req, res) => {
   let ipAddress = req.headers["x-forwarded-for"];
   res.header("Access-Control-Allow-Origin", "*");
-  if (ipAddress) {
-    res.send(ipAddress);
-  } else {
-    res.send("ip address not found");
+  if (ipAddress == "49.173.2.19") {
+    res.send("You're the host!");
   }
 });
 

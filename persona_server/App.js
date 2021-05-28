@@ -24,7 +24,9 @@ app.get("/backupData", (req, res) => {
   let ipAddress = req.headers["x-forwarded-for"];
   res.header("Access-Control-Allow-Origin", "*");
   if (ipAddress == "49.173.2.19") {
-    res.send("You're the host!");
+    res.send("You are the host!");
+  } else {
+    res.send("You are not the host!");
   }
 });
 

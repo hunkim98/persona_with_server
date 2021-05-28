@@ -21,7 +21,11 @@ app.get("/gatherData", (req, res) => {
 app.get("/backupData", (req, res) => {
   const ipAddress = req.headers["x-forwarded-for"];
   res.header("Access-Control-Allow-Origin", "*");
-  res.send(ipAddress);
+  if (ipAddress) {
+    res.send(ipAddress);
+  } else {
+    res.send("ip address not found");
+  }
 });
 
 // app.get("/removeData", (req, res) => {

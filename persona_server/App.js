@@ -4,6 +4,7 @@ var request = require("request");
 const app = express();
 const port = process.env.PORT || 5000;
 const Datastore = require("nedb");
+const fetch = require("node-fetch");
 
 const database = new Datastore("database.db");
 database.loadDatabase();
@@ -16,8 +17,24 @@ app.get("/gatherData", (req, res) => {
   });
 });
 
+app.get("/test1", (req, res) => {
+  database.findOne({ personality: 1 }, (err, docs) => {
+    change_to = 14;
+    console.log("changed id to " + change_to);
+    docs._id = change_to;
+  });
+});
 app.get("/test", (req, res) => {
-  res.send("working");
+  fetch("https://personapersonality.com/gatherData")
+    .then((data) => data.json())
+    .then((response) => {
+      app.get("/removeData", (req, res) => {
+        database.remove({}, { multi: true }, function (err, numRemoved) {
+          res.send("erased all data");
+        });
+      });
+      console.log(response[0]);
+    });
 });
 
 app.get("/backupData", (req, res) => {

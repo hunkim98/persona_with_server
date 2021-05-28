@@ -16,8 +16,12 @@ app.get("/gatherData", (req, res) => {
   });
 });
 
+app.get("/test", (req, res) => {
+  res.send("working");
+});
+
 app.get("/backupData", (req, res) => {
-  const ipAddress = req.headers["x-forwarded-for"];
+  let ipAddress = req.headers["x-forwarded-for"];
   res.header("Access-Control-Allow-Origin", "*");
   if (ipAddress) {
     res.send(ipAddress);

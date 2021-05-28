@@ -9,8 +9,6 @@ const database = new Datastore("database.db");
 database.loadDatabase();
 app.use(express.json({ limit: "1mb" }));
 
-app.set("trust proxy", true);
-
 app.get("/gatherData", (req, res) => {
   database.find({}, (err, docs) => {
     res.header("Access-Control-Allow-Origin", "*");

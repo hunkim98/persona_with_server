@@ -21,7 +21,7 @@ app.get("/gatherData", (req, res) => {
 app.get("/backupData", (req, res) => {
   const ipAddress = req.headers["x-forwarded-for"];
   res.header("Access-Control-Allow-Origin", "*");
-  res.json({ status: "success", ip: ipAddress });
+  res.send(ipAddress);
 });
 
 // app.get("/removeData", (req, res) => {

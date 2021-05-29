@@ -11,7 +11,7 @@ const database = new Datastore("database.db");
 database.loadDatabase();
 app.use(express.json({ limit: "1mb" }));
 
-app.use(express.static(path.join(__dirname, "build")));
+app.use(express.static(path.join(__dirname, "../persona_client/build")));
 
 app.get("/*", (req, res) => {
   res.sendFile(path.join(__dirname, "build", "index.html"));

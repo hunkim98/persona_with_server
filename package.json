@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/hunkim98/persona_with_server/issues"
   },
-  "homepage": "https://github.com/hunkim98/persona_with_server#readme"
+  "homepage": "https://github.com/hunkim98/persona_with_server#readme",
+  "engines": {
+    "node": "14.17.0"
+  }
 }

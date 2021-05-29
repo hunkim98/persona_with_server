@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/hunkim98/persona_with_server#readme",
   "engines": {
-    "node": "14.17.0"
+    "node": "14.17.0",
+    "npm": "6.14.13"
   }
 }

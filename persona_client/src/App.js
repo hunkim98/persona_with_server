@@ -22,112 +22,6 @@ function App() {
   const [color, changeColor] = useState("#ffffff");
   const location = useLocation();
   const [popup, setPopup] = useState(true);
-
-  const data = {
-    name: "Celtics",
-    children: [
-      {
-        name: "Guards",
-        children: [
-          {
-            category: "Guards",
-            name: "Kemba Walker",
-            value: 20.4,
-          },
-          {
-            category: "Guards",
-            name: "Marcus Smart",
-            value: 12.9,
-          },
-          {
-            category: "Guards",
-            name: "Brad Wanamaker",
-            value: 6.9,
-          },
-          {
-            category: "Guards",
-            name: "Tremont Waters",
-            value: 3.6,
-          },
-          {
-            category: "Guards",
-            name: "Carsen Edwards",
-            value: 3.3,
-          },
-          {
-            category: "Guards",
-            name: "Romeo Langford",
-            value: 2.5,
-          },
-        ],
-      },
-      {
-        name: "Forwards",
-        children: [
-          {
-            category: "Forwards",
-            name: "Jayson Tatum",
-            value: 23.4,
-          },
-          {
-            category: "Forwards",
-            name: "Jaylen Brown",
-            value: 20.3,
-          },
-          {
-            category: "Forwards",
-            name: "Gordon Hayward",
-            value: 17.5,
-          },
-          {
-            category: "Forwards",
-            name: "Grant Williams",
-            value: 3.4,
-          },
-          {
-            category: "Forwards",
-            name: "Javonte Green",
-            value: 3.4,
-          },
-          {
-            category: "Forwards",
-            name: "Semi Ojeleye",
-            value: 3.4,
-          },
-          {
-            category: "Forwards",
-            name: "Vincent Poirier",
-            value: 1.9,
-          },
-        ],
-      },
-      {
-        name: "Centers",
-        children: [
-          {
-            category: "Centers",
-            name: "Daniel Theis",
-            value: 9.2,
-          },
-          {
-            category: "Centers",
-            name: "Enes Kanter",
-            value: 8.1,
-          },
-          {
-            category: "Centers",
-            name: "Robert Williams III",
-            value: 5.2,
-          },
-          {
-            category: "Centers",
-            name: "Tacko Fall",
-            value: 3.3,
-          },
-        ],
-      },
-    ],
-  };
   useEffect(() => {
     let host = window.location.hostname;
     if (host !== "localhost") {
@@ -151,10 +45,10 @@ function App() {
       }}
       id="main"
     >
-      <RouteChangeTracker />
+      {/* <RouteChangeTracker />
       {popup && location.pathname === "/" ? (
         <Popup setPopup={setPopup} />
-      ) : null}
+      ) : null} */}
       <Navbar
         setStartBool={setStartBool}
         setName={setName}
@@ -163,6 +57,27 @@ function App() {
       />
       <Switch>
         <Route
+          path="/"
+          render={(props) => (
+            <div
+              style={{
+                fontSize: "40px",
+                width: "100%",
+                textAlign: "center",
+                fontWeight: "600",
+              }}
+            >
+              <div
+                style={{
+                  margin: "50px 20px",
+                }}
+              >
+                서버를 재설정 중입니다. 5/23 ~ 5/24
+              </div>
+            </div>
+          )}
+        ></Route>
+        {/* <Route
           path="/"
           exact
           render={(props) => (
@@ -212,7 +127,7 @@ function App() {
         <Route
           path="/treemap"
           render={(props) => <Treemap data={data} height={400} width={600} />}
-        />
+        /> */}
       </Switch>
     </div>
   );
